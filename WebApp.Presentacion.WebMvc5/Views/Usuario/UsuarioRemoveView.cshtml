@@ -1,0 +1,105 @@
+@*//===================================================================================
+// © CBP - linkedin.com/in/
+//===================================================================================*@
+
+@using WebApp.Presentacion.WebMvc5.Resources
+
+@model WebApp.Presentacion.WebMvc5.ViewModels.UsuarioCrudViewModel
+
+@{ 
+	ViewBag.Title = "Remove Usuario"; 
+	}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>@Html.Label(PresentationResources.DeleteSure)</h3>
+@using (Html.BeginForm()) {
+	@Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+	<fieldset>
+		<legend>Usuario</legend>
+
+			@Html.HiddenFor(model => model.Usuario.Id)
+
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Usuario.SupervisorUserID):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Usuario.SupervisorUserID)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Usuario.AccountName):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Usuario.AccountName)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Usuario.Photo):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Usuario.Photo)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Usuario.LanguageId):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Usuario.LanguageId)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Usuario.UserNote):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Usuario.UserNote)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Usuario.Activo):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Usuario.Activo)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Usuario.CreatedBy):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Usuario.CreatedBy)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Usuario.CreatedDate):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Usuario.CreatedDate)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Usuario.ModifiedBy):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Usuario.ModifiedBy)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Usuario.ModifiedDate):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Usuario.ModifiedDate)
+			</div>
+		</div>
+		<div class="buttons">
+			<p>
+				<input type="submit" name="remove" value="@PresentationResources.Remove" />
+			</p>
+		</div>		
+	</fieldset>
+}
+
+<div>
+	@Html.ActionLink(PresentationResources.GoBack, "Find")
+</div>

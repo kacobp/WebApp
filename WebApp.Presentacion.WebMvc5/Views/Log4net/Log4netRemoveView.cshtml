@@ -1,0 +1,85 @@
+@*//===================================================================================
+// © CBP - linkedin.com/in/
+//===================================================================================*@
+
+@using WebApp.Presentacion.WebMvc5.Resources
+
+@model WebApp.Presentacion.WebMvc5.ViewModels.Log4netCrudViewModel
+
+@{ 
+	ViewBag.Title = "Remove Log4net"; 
+	}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>@Html.Label(PresentationResources.DeleteSure)</h3>
+@using (Html.BeginForm()) {
+	@Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+	<fieldset>
+		<legend>Log4net</legend>
+
+			@Html.HiddenFor(model => model.Log4net.Id)
+
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Log4net.Level):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Log4net.Level)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Log4net.Logger):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Log4net.Logger)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Log4net.Host):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Log4net.Host)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Log4net.Date):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Log4net.Date)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Log4net.Thread):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Log4net.Thread)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Log4net.Message):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Log4net.Message)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Log4net.Exception):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Log4net.Exception)
+			</div>
+		</div>
+		<div class="buttons">
+			<p>
+				<input type="submit" name="remove" value="@PresentationResources.Remove" />
+			</p>
+		</div>		
+	</fieldset>
+}
+
+<div>
+	@Html.ActionLink(PresentationResources.GoBack, "Find")
+</div>

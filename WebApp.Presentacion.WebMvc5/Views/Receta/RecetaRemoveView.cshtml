@@ -1,0 +1,105 @@
+@*//===================================================================================
+// © CBP - linkedin.com/in/
+//===================================================================================*@
+
+@using WebApp.Presentacion.WebMvc5.Resources
+
+@model WebApp.Presentacion.WebMvc5.ViewModels.RecetaCrudViewModel
+
+@{ 
+	ViewBag.Title = "Remove Receta"; 
+	}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>@Html.Label(PresentationResources.DeleteSure)</h3>
+@using (Html.BeginForm()) {
+	@Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+	<fieldset>
+		<legend>Receta</legend>
+
+			@Html.HiddenFor(model => model.Receta.Id)
+
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Receta.IdFamRec):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Receta.IdFamRec)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Receta.IdRecetaBase):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Receta.IdRecetaBase)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Receta.Nombre):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Receta.Nombre)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Receta.Alias):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Receta.Alias)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Receta.Ubicacion):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Receta.Ubicacion)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Receta.Descripcion):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Receta.Descripcion)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Receta.Preparacion):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Receta.Preparacion)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Receta.IdFoto):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Receta.IdFoto)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Receta.IdEstado):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Receta.IdEstado)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Receta.FechaRegistro):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Receta.FechaRegistro)
+			</div>
+		</div>
+		<div class="buttons">
+			<p>
+				<input type="submit" name="remove" value="@PresentationResources.Remove" />
+			</p>
+		</div>		
+	</fieldset>
+}
+
+<div>
+	@Html.ActionLink(PresentationResources.GoBack, "Find")
+</div>

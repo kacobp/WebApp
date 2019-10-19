@@ -1,0 +1,41 @@
+@*//===================================================================================
+// © CBP - linkedin.com/in/
+//===================================================================================*@
+
+@using WebApp.Aplicacion.Resx
+@using WebApp.Presentacion.WebMvc5.Resources
+
+@model WebApp.Presentacion.WebMvc5.ViewModels.ImagenesFindViewModel
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="ibox-content">
+   
+            <div id="search-result">
+                @if (Model != null && Model.Items != null && Model.Items.Any())
+                {
+                    var grid = new WebGrid(rowsPerPage: Model.PageSize, ajaxUpdateContainerId: "search-result");
+                    grid.Bind(Model.Items, rowCount: Model.TotalItems, autoSortAndPage: false);
+                    grid.PageIndex = Model.PageIndex - 1;
+
+					@grid.GetHtml(tableStyle: "webGrid", htmlAttributes: new { id = "DataTable" },
+                    mode: WebGridPagerModes.All,
+                    numericLinksCount: 12,
+                    columns: grid.Columns(
+
+                        grid.Column(format: @<a href="~/Imagenes/Modify?id=@item.Id" class="btn btn-xs btn-primary" title="@PresentationResources.Modify"><i class="fa fa-paste"></i> </a>),
+                        grid.Column(format: @<a href="~/Imagenes/Remove?id=@item.Id" class="btn btn-xs btn-danger" title="@PresentationResources.Remove"><i class="fa fa-remove"></i> </a>),
+                        grid.Column("NomArchivo", ApplicationResources.ImagenesNomArchivo),
+                        grid.Column("Imagen", ApplicationResources.ImagenesImagen, format:
+                                    @<text><img alt="@item.id" class="rounded-circle" src="data:image/jpg;base64, @Convert.ToBase64String(item.Imagen)" width="100" height="100" /></text>)
+                ))
+                }
+                else if (Model != null && Model.Items != null)
+                {
+                    <div class="alert alert-info" role="alert">@PresentationResources.NoResults</div>
+                    @*@Html.Label(PresentationResources.NoResults);*@
+                }
+            </div>
+        </div>
+    </div>
+</div>

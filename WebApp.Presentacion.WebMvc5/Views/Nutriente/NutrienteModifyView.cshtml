@@ -1,0 +1,111 @@
+@*//===================================================================================
+// © CBP - linkedin.com/in/
+//===================================================================================*@
+
+@using WebApp.Presentacion.WebMvc5.Resources
+
+@model WebApp.Presentacion.WebMvc5.ViewModels.NutrienteCrudViewModel
+
+@{ 
+	ViewBag.Title = "Modify Nutriente"; 
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>@ViewBag.Title</h2>
+            <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="@Url.Action("Index", "Home")">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a>Nutriente</a>
+            </li>
+            <li class="active breadcrumb-item">
+                <strong>    @ViewBag.Title</strong>
+            </li>
+        </ol>
+	</div>
+</div>
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-content">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+						@Html.HiddenFor(model => model.Nutriente.Id)
+
+						<div class="form-horizontal">
+							@Html.ValidationSummary(true)
+                            <div class="form-group">
+								@Html.LabelFor(model => model.Nutriente.Codigo, new { @class = "control-label col-md-2" })                                
+								@Html.EditorFor(model => model.Nutriente.Codigo, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Nutriente.Codigo, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+								@Html.LabelFor(model => model.Nutriente.Simbolo, new { @class = "control-label col-md-2" })                                
+								@Html.EditorFor(model => model.Nutriente.Simbolo, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Nutriente.Simbolo, "", new { @class = "text-danger" })
+                            </div>
+						@*</div>*@
+                            <div class="form-group">
+								@Html.LabelFor(model => model.Nutriente.Nombre, new { @class = "control-label col-md-2" })                                
+								@Html.EditorFor(model => model.Nutriente.Nombre, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Nutriente.Nombre, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+								@Html.LabelFor(model => model.Nutriente.Tag, new { @class = "control-label col-md-2" })                                
+								@Html.EditorFor(model => model.Nutriente.Tag, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Nutriente.Tag, "", new { @class = "text-danger" })
+                            </div>
+						@*</div>*@
+                            <div class="form-group">
+								@Html.LabelFor(model => model.Nutriente.Decimales, new { @class = "control-label col-md-2" })                                
+								@Html.EditorFor(model => model.Nutriente.Decimales, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Nutriente.Decimales, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+								@Html.LabelFor(model => model.Nutriente.IdUniMed, new { @class = "control-label col-md-2" })                                
+								@Html.EditorFor(model => model.Nutriente.IdUniMed, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Nutriente.IdUniMed, "", new { @class = "text-danger" })
+                            </div>
+						@*</div>*@
+                            <div class="form-group">
+								@Html.LabelFor(model => model.Nutriente.IdFuncNT, new { @class = "control-label col-md-2" })                                
+								@Html.DropDownListFor(model => model.Nutriente.IdFuncNT, Model.Nt_Funcs, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Nutriente.IdFuncNT, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+								@Html.LabelFor(model => model.Nutriente.IdGrpNT, new { @class = "control-label col-md-2" })                                
+								@Html.DropDownListFor(model => model.Nutriente.IdGrpNT, Model.Nt_Grps, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Nutriente.IdGrpNT, "", new { @class = "text-danger" })
+                            </div>
+						@*</div>*@
+                            <div class="form-group">
+								@Html.LabelFor(model => model.Nutriente.esEsencial, new { @class = "control-label col-md-2" })                                
+								@Html.EditorFor(model => model.Nutriente.esEsencial, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Nutriente.esEsencial, "", new { @class = "text-danger" })
+                            </div>
+						@*</div>*@
+
+							<div class="form-group">
+								<button type="button" onclick="submit()" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="@PresentationResources.Modify">
+									<i class="fa fa-save"> @PresentationResources.Modify</i>
+								</button>
+
+								<button onclick="@Url.Action(PresentationResources.Find, "Nutriente")" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="@PresentationResources.GoBack">
+									<i class="fa fa-reply"></i> @PresentationResources.GoBack
+								</button>
+							</div>
+
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

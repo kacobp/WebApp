@@ -1,0 +1,152 @@
+@*//===================================================================================
+// © CBP - linkedin.com/in/
+//===================================================================================*@
+
+@using WebApp.Presentacion.WebMvc5.Resources
+
+@model WebApp.Presentacion.WebMvc5.ViewModels.AlimCrudViewModel
+
+@{ 
+	ViewBag.Title = "Add Alim"; 
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>@ViewBag.Title</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="@Url.Action("Index", "Home")">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a>Alim</a>
+            </li>
+            <li class="active breadcrumb-item">
+                <strong>    @ViewBag.Title</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-content">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @*@Html.HiddenFor(model => model.Alim.Id)*@
+
+                        <div class="form-horizontal">
+							@Html.ValidationSummary(true)
+
+                            @*<div class="form-group">
+                                @Html.LabelFor(model => model.Alim.Id, new { @class = "control-label col-md-2" }):
+                                @Html.EditorFor(model => model.Alim.Id, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Alim.Id, "", new { @class = "text-danger" })
+                            </div>*@
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Alim.Nombre, new { @class = "control-label col-md-2" }):
+								@Html.EditorFor(model => model.Alim.Nombre, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Alim.Nombre, "", new { @class = "text-danger" })
+							</div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Alim.IdEstado, new { @class = "control-label col-md-2" }):
+								@Html.EditorFor(model => model.Alim.IdEstado, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Alim.IdEstado, "", new { @class = "text-danger" })
+							</div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Alim.FactorRendimiento, new { @class = "control-label col-md-2" }):
+								@Html.EditorFor(model => model.Alim.FactorRendimiento, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Alim.FactorRendimiento, "", new { @class = "text-danger" })
+							</div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Alim.FactorDescuento, new { @class = "control-label col-md-2" }):
+								@Html.EditorFor(model => model.Alim.FactorDescuento, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Alim.FactorDescuento, "", new { @class = "text-danger" })
+							</div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Alim.Fraccionado, new { @class = "control-label col-md-2" }):
+								@Html.EditorFor(model => model.Alim.Fraccionado, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Alim.Fraccionado, "", new { @class = "text-danger" })
+							</div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Alim.ConversionInyectado, new { @class = "control-label col-md-2" }):
+								@Html.EditorFor(model => model.Alim.ConversionInyectado, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Alim.ConversionInyectado, "", new { @class = "text-danger" })
+							</div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Alim.FactorConversion, new { @class = "control-label col-md-2" }):
+								@Html.EditorFor(model => model.Alim.FactorConversion, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Alim.FactorConversion, "", new { @class = "text-danger" })
+							</div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Alim.Inactivo, new { @class = "control-label col-md-2" }):
+								@Html.EditorFor(model => model.Alim.Inactivo, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Alim.Inactivo, "", new { @class = "text-danger" })
+							</div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Alim.NomAbreviado, new { @class = "control-label col-md-2" }):
+								@Html.EditorFor(model => model.Alim.NomAbreviado, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Alim.NomAbreviado, "", new { @class = "text-danger" })
+							</div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Alim.NomCientifico, new { @class = "control-label col-md-2" }):
+								@Html.EditorFor(model => model.Alim.NomCientifico, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Alim.NomCientifico, "", new { @class = "text-danger" })
+							</div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Alim.esAlimento, new { @class = "control-label col-md-2" }):
+								@Html.EditorFor(model => model.Alim.esAlimento, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Alim.esAlimento, "", new { @class = "text-danger" })
+							</div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Alim.NT_MedidaBase, new { @class = "control-label col-md-2" }):
+								@Html.EditorFor(model => model.Alim.NT_MedidaBase, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Alim.NT_MedidaBase, "", new { @class = "text-danger" })
+							</div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Alim.IdUniMed, new { @class = "control-label col-md-2" }):
+								@Html.DropDownListFor(model => model.Alim.IdUniMed, Model.UniMeds, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Alim.IdUniMed, "", new { @class = "text-danger" })
+							</div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Alim.IdAlimGrp, new { @class = "control-label col-md-2" }):
+								@Html.DropDownListFor(model => model.Alim.IdAlimGrp, Model.Alim_Grps, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Alim.IdAlimGrp, "", new { @class = "text-danger" })
+							</div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Alim.IdAlimFte, new { @class = "control-label col-md-2" }):
+								@Html.DropDownListFor(model => model.Alim.IdAlimFte, Model.Alim_Fuentes, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Alim.IdAlimFte, "", new { @class = "text-danger" })
+							</div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Alim.FechaRegistro, new { @class = "control-label col-md-2" }):
+								@Html.EditorFor(model => model.Alim.FechaRegistro, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.Alim.FechaRegistro, "", new { @class = "text-danger" })
+							</div>
+
+							<div class="form-group">
+                                <button type="button" onclick="submit()" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="@PresentationResources.Add">
+                                    <i class="fa fa-save"> @PresentationResources.Add</i>
+                                </button>
+
+                                <a href="@Url.Action(PresentationResources.Find, "Alim")" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="@PresentationResources.GoBack"><i class="fa fa-reply"></i> @PresentationResources.GoBack</a>
+							</div>
+						</div>
+					}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

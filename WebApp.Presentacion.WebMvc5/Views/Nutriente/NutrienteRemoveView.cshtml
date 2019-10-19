@@ -1,0 +1,99 @@
+@*//===================================================================================
+// © CBP - linkedin.com/in/
+//===================================================================================*@
+
+@using WebApp.Presentacion.WebMvc5.Resources
+
+@model WebApp.Presentacion.WebMvc5.ViewModels.NutrienteCrudViewModel
+
+@{ 
+	ViewBag.Title = "Remove Nutriente"; 
+	}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>@Html.Label(PresentationResources.DeleteSure)</h3>
+@using (Html.BeginForm()) {
+	@Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+	<fieldset>
+		<legend>Nutriente</legend>
+
+			@Html.HiddenFor(model => model.Nutriente.Id)
+
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Nutriente.Codigo):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Nutriente.Codigo)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Nutriente.Simbolo):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Nutriente.Simbolo)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Nutriente.Nombre):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Nutriente.Nombre)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Nutriente.Tag):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Nutriente.Tag)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Nutriente.Decimales):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Nutriente.Decimales)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Nutriente.IdUniMed):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Nutriente.IdUniMed)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Nutriente.IdFuncNT):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Nutriente.IdFuncNT)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Nutriente.IdGrpNT):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Nutriente.IdGrpNT)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Nutriente.esEsencial):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Nutriente.esEsencial)
+			</div>
+		</div>
+		<div class="buttons">
+			<p>
+				<input type="submit" name="remove" value="@PresentationResources.Remove" />
+			</p>
+		</div>		
+	</fieldset>
+}
+
+<div>
+	@Html.ActionLink(PresentationResources.GoBack, "Find")
+</div>

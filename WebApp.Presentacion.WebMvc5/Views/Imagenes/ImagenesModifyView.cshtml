@@ -1,0 +1,87 @@
+@*//===================================================================================
+// © CBP - linkedin.com/in/
+//===================================================================================*@
+
+@using WebApp.Presentacion.WebMvc5.Resources
+
+@model WebApp.Presentacion.WebMvc5.ViewModels.ImagenesCrudViewModel
+
+@{ 
+	ViewBag.Title = "Modify Imagenes"; 
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>@ViewBag.Title</h2>
+            <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="@Url.Action("Index", "Home")">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a>Imagenes</a>
+            </li>
+            <li class="active breadcrumb-item">
+                <strong>    @ViewBag.Title</strong>
+            </li>
+        </ol>
+	</div>
+</div>
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="ibox">
+                <div class="ibox-content">
+
+                    @using (Html.BeginForm("Modify", "Imagenes", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+						@Html.HiddenFor(model => model.Imagenes.Id)
+
+						<div class="form-horizontal">
+							@Html.ValidationSummary(true)
+
+                            <div class="ibox-content no-padding border-left-right">
+                                <img alt="image" src="data:image/jpg;base64,@Convert.ToBase64String(@Model.Imagenes.Imagen)" />
+                            </div>
+                                                     
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <span class="btn btn-default btn-file">
+                                        Buscar...
+                                        @Html.TextBoxFor(m => m.FileAttach, new { type = "file", placeholder = Html.DisplayNameFor(m => m.FileAttach), @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.FileAttach, "", new { @class = "text-danger" })
+                                    </span>
+                                </span>
+                            </div>
+
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.Imagenes.NomArchivo, new { @class = "control-label col-md-2" })
+        @Html.EditorFor(model => model.Imagenes.NomArchivo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Imagenes.NomArchivo, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Imagenes.Imagen, new { @class = "control-label col-md-2" })
+        @Html.EditorFor(model => model.Imagenes.Imagen, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Imagenes.Imagen, "", new { @class = "text-danger" })
+    </div>*@
+
+							<div class="form-group">
+								<button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="@PresentationResources.Modify" onclick="submit()">
+									<i class="fa fa-save"> @PresentationResources.Modify</i>
+								</button>
+
+								<button onclick="@Url.Action(PresentationResources.Find, "Imagenes")" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="@PresentationResources.GoBack">
+									<i class="fa fa-reply"></i> @PresentationResources.GoBack
+								</button>
+							</div>
+
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

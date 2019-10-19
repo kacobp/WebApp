@@ -1,0 +1,147 @@
+@*//===================================================================================
+// © CBP - linkedin.com/in/
+//===================================================================================*@
+
+@using WebApp.Presentacion.WebMvc5.Resources
+
+@model WebApp.Presentacion.WebMvc5.ViewModels.AlimCrudViewModel
+
+@{ 
+	ViewBag.Title = "Remove Alim"; 
+	}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>@Html.Label(PresentationResources.DeleteSure)</h3>
+@using (Html.BeginForm()) {
+	@Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+	<fieldset>
+		<legend>Alim</legend>
+
+			@Html.HiddenFor(model => model.Alim.Id)
+
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Alim.Nombre):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Alim.Nombre)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Alim.IdEstado):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Alim.IdEstado)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Alim.FactorRendimiento):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Alim.FactorRendimiento)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Alim.FactorDescuento):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Alim.FactorDescuento)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Alim.Fraccionado):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Alim.Fraccionado)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Alim.ConversionInyectado):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Alim.ConversionInyectado)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Alim.FactorConversion):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Alim.FactorConversion)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Alim.Inactivo):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Alim.Inactivo)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Alim.NomAbreviado):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Alim.NomAbreviado)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Alim.NomCientifico):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Alim.NomCientifico)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Alim.esAlimento):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Alim.esAlimento)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Alim.NT_MedidaBase):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Alim.NT_MedidaBase)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Alim.IdUniMed):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Alim.IdUniMed)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Alim.IdAlimGrp):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Alim.IdAlimGrp)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Alim.IdAlimFte):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Alim.IdAlimFte)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.Alim.FechaRegistro):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.Alim.FechaRegistro)
+			</div>
+		</div>
+		<div class="buttons">
+			<p>
+				<input type="submit" name="remove" value="@PresentationResources.Remove" />
+			</p>
+		</div>		
+	</fieldset>
+}
+
+<div>
+	@Html.ActionLink(PresentationResources.GoBack, "Find")
+</div>

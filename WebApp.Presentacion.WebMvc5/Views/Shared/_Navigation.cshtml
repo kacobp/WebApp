@@ -1,0 +1,75 @@
+﻿<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <img alt="image" class="rounded-circle" src="~/Images/profile_small.jpg" />
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="block m-t-xs font-bold">Invitado</span>
+                        <span class="text-muted text-xs block">Invitado <b class="caret"></b></span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs" style="position: absolute; top: 91px; left: 0px; will-change: top, left;">
+                        <li><a class="dropdown-item" href="@Url.Action("Find", "Usuario")">Profile</a></li>
+                        @*<li><a class="dropdown-item" href="@Url.Action("Contacts", "AppViews")">Contacts</a></li>
+                        <li><a class="dropdown-item" href="@Url.Action("Inbox", "Mailbox")">Mailbox</a></li>*@
+                        <li class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="@Url.Action("Login", "Pages")">Logout</a></li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    IN+
+                </div>
+            </li>
+
+            <li class="@Html.IsSelected(controller: "Nutriente")">
+                <a href="@Url.Action("Index", "Home")"><i class="fa fa-th-list"></i> <span class="nav-label">Nutrientes</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse @Html.IsSelected(controller: "Nutriente", cssClass: "in")">
+                    <li class="@Html.IsSelected(action: "Find")"><a href="@Url.Action("Find", "Nutriente")">Nutrientes</a></li>
+                    <li class="@Html.IsSelected(action: "Find")"><a href="@Url.Action("Find", "Nt_Func")">Funciones</a></li>
+                    <li class="@Html.IsSelected(action: "Find")"><a href="@Url.Action("Find", "Nt_Fuente")">Fuentes</a></li>
+                </ul>
+            </li>
+
+            <li class="@Html.IsSelected(controller: "Alimento")">
+                <a href="#"><i class="fa fa-th-list"></i> <span class="nav-label">Alimento</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse @Html.IsSelected(controller: "Alimento", cssClass: "in")">
+                    <li class="@Html.IsSelected(action: "Find")"><a href="@Url.Action("Find", "Alim")">Alimentos</a></li>
+                    <li class="@Html.IsSelected(action: "Find")"><a href="@Url.Action("Find", "Alim_Fuente")">Fuente Alimenticia</a></li>
+                    <li class="@Html.IsSelected(action: "Find")"><a href="@Url.Action("Find", "Alim_Grp")">Grupo Alimenticio</a></li>
+                </ul>
+            </li>
+
+            <li class="@Html.IsSelected(controller: "Receta")">
+                <a href="#"><i class="fa fa-cutlery"></i> <span class="nav-label">Receta</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse @Html.IsSelected(controller: "Receta", cssClass: "in")">
+                    <li class="@Html.IsSelected(action: "Find")"><a href="@Url.Action("Find", "Receta")">Recetas</a></li>
+                    <li class="@Html.IsSelected(action: "Find")"><a href="@Url.Action("Find", "FamRec")">Familias</a></li>
+                </ul>
+            </li>
+            <li class="@Html.IsSelected(controller: "Usuario")">
+                <a href="#"><i class="fa fa-user-alt"></i> <span class="nav-label">Usuario</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse @Html.IsSelected(controller: "Usuario", cssClass: "in")">
+                    <li class="@Html.IsSelected(action: "Find")"><a href="@Url.Action("Find", "Usuario")">Usuario</a></li>
+                    <li class="@Html.IsSelected(action: "Find")"><a href="@Url.Action("Find", "UserPhotos")">Imagenes Usuario</a></li>
+                    <li class="@Html.IsSelected(action: "Find")"><a href="@Url.Action("Find", "UserPasswords")">Passwords</a></li>
+                    <li class="@Html.IsSelected(action: "Find")"><a href="@Url.Action("Find", "PermisosUsuario")">Permisos</a></li>
+                    <li class="@Html.IsSelected(action: "Find")"><a href="@Url.Action("Find", "RolUsuario")">Roles</a></li>
+                    <li class="@Html.IsSelected(action: "Find")"><a href="@Url.Action("Find", "Imagenes")">Imagenes</a></li>
+                </ul>
+            </li>
+            <li class="@Html.IsSelected(controller: "Pages")">
+                <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label" data-i18n="nav.otherpages">Other Pages</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse @Html.IsSelected(controller: "Pages", cssClass: "in")">
+                    <li class="@Html.IsSelected(action: "LockScreen")"><a href="@Url.Action("LockScreen", "Pages")">Lockscreen</a></li>
+                    <li class="@Html.IsSelected(action: "Login")"><a href="@Url.Action("Login", "Account")">Login</a></li>
+                    <li class="@Html.IsSelected(action: "Login_2")"><a href="@Url.Action("Login_2", "Account")">Login v.2</a></li>
+                    <li class="@Html.IsSelected(action: "ForgotPassword")"><a href="@Url.Action("ForgotPassword", "Account")">Forgot password</a></li>
+                    <li class="@Html.IsSelected(action: "Register")"><a href="@Url.Action("Register", "Account")">Register</a></li>
+                    <li class="@Html.IsSelected(action: "NotFoundError")"><a href="@Url.Action("NotFoundError", "Pages")">404 Page</a></li>
+                    <li class="@Html.IsSelected(action: "InternalServerError")"><a href="@Url.Action("InternalServerError", "Pages")">500 Page</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+</nav>

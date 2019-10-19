@@ -1,0 +1,83 @@
+@*//===================================================================================
+// © CBP - linkedin.com/in/
+//===================================================================================*@
+
+@using WebApp.Presentacion.WebMvc5.Resources
+
+@model WebApp.Presentacion.WebMvc5.ViewModels.FamRecCrudViewModel
+
+@{ 
+	ViewBag.Title = "Modify FamRec"; 
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>@ViewBag.Title</h2>
+            <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="@Url.Action("Index", "Home")">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a>FamRec</a>
+            </li>
+            <li class="active breadcrumb-item">
+                <strong>    @ViewBag.Title</strong>
+            </li>
+        </ol>
+	</div>
+</div>
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-content">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+						@Html.HiddenFor(model => model.FamRec.Id)
+
+						<div class="form-horizontal">
+							@Html.ValidationSummary(true)
+                            <div class="form-group">
+								@Html.LabelFor(model => model.FamRec.Nombre, new { @class = "control-label col-md-2" })                                
+								@Html.EditorFor(model => model.FamRec.Nombre, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.FamRec.Nombre, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+								@Html.LabelFor(model => model.FamRec.Descripcion, new { @class = "control-label col-md-2" })                                
+								@Html.EditorFor(model => model.FamRec.Descripcion, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.FamRec.Descripcion, "", new { @class = "text-danger" })
+                            </div>
+						@*</div>*@
+                            <div class="form-group">
+								@Html.LabelFor(model => model.FamRec.Base, new { @class = "control-label col-md-2" })                                
+								@Html.EditorFor(model => model.FamRec.Base, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.FamRec.Base, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+								@Html.LabelFor(model => model.FamRec.FechaRegistro, new { @class = "control-label col-md-2" })                                
+								@Html.EditorFor(model => model.FamRec.FechaRegistro, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.FamRec.FechaRegistro, "", new { @class = "text-danger" })
+                            </div>
+						@*</div>*@
+
+							<div class="form-group">
+								<button type="button" onclick="submit()" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="@PresentationResources.Modify">
+									<i class="fa fa-save"> @PresentationResources.Modify</i>
+								</button>
+
+								<button onclick="@Url.Action(PresentationResources.Find, "FamRec")" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="@PresentationResources.GoBack">
+									<i class="fa fa-reply"></i> @PresentationResources.GoBack
+								</button>
+							</div>
+
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

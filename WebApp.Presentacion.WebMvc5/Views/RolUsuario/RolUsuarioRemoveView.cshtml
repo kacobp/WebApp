@@ -1,0 +1,85 @@
+@*//===================================================================================
+// © CBP - linkedin.com/in/
+//===================================================================================*@
+
+@using WebApp.Presentacion.WebMvc5.Resources
+
+@model WebApp.Presentacion.WebMvc5.ViewModels.RolUsuarioCrudViewModel
+
+@{ 
+	ViewBag.Title = "Remove RolUsuario"; 
+	}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>@Html.Label(PresentationResources.DeleteSure)</h3>
+@using (Html.BeginForm()) {
+	@Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+	<fieldset>
+		<legend>RolUsuario</legend>
+
+			@Html.HiddenFor(model => model.RolUsuario.Id)
+
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.RolUsuario.Nombre):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.RolUsuario.Nombre)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.RolUsuario.Nota):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.RolUsuario.Nota)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.RolUsuario.Activo):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.RolUsuario.Activo)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.RolUsuario.CreatedBy):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.RolUsuario.CreatedBy)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.RolUsuario.CreatedDate):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.RolUsuario.CreatedDate)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.RolUsuario.ModifiedBy):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.RolUsuario.ModifiedBy)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.RolUsuario.ModifiedDate):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.RolUsuario.ModifiedDate)
+			</div>
+		</div>
+		<div class="buttons">
+			<p>
+				<input type="submit" name="remove" value="@PresentationResources.Remove" />
+			</p>
+		</div>		
+	</fieldset>
+}
+
+<div>
+	@Html.ActionLink(PresentationResources.GoBack, "Find")
+</div>

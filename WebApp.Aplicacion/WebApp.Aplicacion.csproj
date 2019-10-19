@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F1B5D0C0-DA9A-4870-BBF7-CF9160EFF446}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApp.Aplicacion</RootNamespace>
+    <AssemblyName>WebApp.Aplicacion</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=9.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.9.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Collection, Version=5.0.0.0, Culture=neutral, PublicKeyToken=e57c3f0a3d6646db, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.Collection.5.0.0\lib\net461\AutoMapper.Collection.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.EF6, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.EF6.2.0.0\lib\net461\AutoMapper.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="DelegateDecompiler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=93b26a10a04705bd, processorArchitecture=MSIL">
+      <HintPath>..\packages\DelegateDecompiler.0.24.0\lib\net45\DelegateDecompiler.dll</HintPath>
+    </Reference>
+    <Reference Include="DelegateDecompiler.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=93b26a10a04705bd, processorArchitecture=MSIL">
+      <HintPath>..\packages\DelegateDecompiler.EntityFramework.0.24.0\lib\net45\DelegateDecompiler.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Reflection, Version=1.1.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Reflection.Core.1.1.1\lib\net45\Mono.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TrackableEntities.Common, Version=2.5.0.0, Culture=neutral, PublicKeyToken=b10b51e7b9be6a2e, processorArchitecture=MSIL">
+      <HintPath>..\packages\TrackableEntities.Common.2.5.7\lib\portable40-net40+sl5+win8+wp8+wpa81\TrackableEntities.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppServices\AlimAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\Alim_FuenteAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\Alim_GrpAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\AppServices.Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\DesCantAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\DesechoAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\FactConvAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\FamRecAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\IAlimAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\IAlim_FuenteAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\IAlim_GrpAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\IAppServices.Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\IDesCantAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\IDesechoAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\IFactConvAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\IFamRecAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\IImagenesAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\ILog4netAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\ILoginAttemptsAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\ImagenesAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\IMedidaAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\INt_CantAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\INt_FuenteAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\INt_FuncAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\INt_GrpAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\INt_Grp_CantAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\INutrienteAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\IPasswordAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\IPermisosUsuarioAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\IRecetaAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\IRecProdAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\IRendAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\IRendCantAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\IRolUsuarioAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\IUniMedAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\IUserPasswordsAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\IUserPhotosAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\IUsuarioAppService.cs">
+      <DependentUpon>IAppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\Log4netAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\LoginAttemptsAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\MedidaAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\Nt_CantAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\Nt_FuenteAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\Nt_FuncAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\Nt_GrpAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\Nt_Grp_CantAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\NutrienteAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\PasswordAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\PermisosUsuarioAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\RecetaAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\RecProdAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\RendAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\RendCantAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\RolUsuarioAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\UniMedAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\UserPasswordsAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\UserPhotosAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppServices\UsuarioAppService.cs">
+      <DependentUpon>AppServices.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppServices\AppServices.Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AppServices.Model.cs</LastGenOutput>
+    </Content>
+    <Content Include="AppServices\IAppServices.Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IAppServices.Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebApp.Aplicacion.Core\WebApp.Aplicacion.Core.csproj">
+      <Project>{59914837-b7c6-4dbc-ab00-85c073437e31}</Project>
+      <Name>WebApp.Aplicacion.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApp.Aplicacion.Resx\WebApp.Aplicacion.Resx.csproj">
+      <Project>{21363d6a-40a5-41ac-8fec-0b13ff2c6a48}</Project>
+      <Name>WebApp.Aplicacion.Resx</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApp.Datos.Core\WebApp.Datos.Core.csproj">
+      <Project>{87d7e958-2b45-4b23-9133-a15ac0abf846}</Project>
+      <Name>WebApp.Datos.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApp.Datos\WebApp.Datos.csproj">
+      <Project>{d005ca14-962f-49c0-be79-020679a84aa5}</Project>
+      <Name>WebApp.Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApp.Dominio.Core\WebApp.Dominio.Core.csproj">
+      <Project>{794777a5-3927-4433-96fc-44767355bddb}</Project>
+      <Name>WebApp.Dominio.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApp.Dominio\WebApp.Dominio.csproj">
+      <Project>{5b83e8eb-ca7f-46ad-9833-15a9c8f6901c}</Project>
+      <Name>WebApp.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApp.Transversal\WebApp.Transversales.csproj">
+      <Project>{3d1fbc43-2970-4545-b8bd-c0bb0e3fd040}</Project>
+      <Name>WebApp.Transversales</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AppServices\Extensions\" />
+    <Folder Include="AutoMapping\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

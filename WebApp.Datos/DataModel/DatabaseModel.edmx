@@ -1,0 +1,1924 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WebApp.Datos.DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Alim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdEstado" Type="int" />
+          <Property Name="FactorRendimiento" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="FactorDescuento" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Fraccionado" Type="int" />
+          <Property Name="ConversionInyectado" Type="int" />
+          <Property Name="FactorConversion" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="Inactivo" Type="int" />
+          <Property Name="NomAbreviado" Type="varchar" MaxLength="250" />
+          <Property Name="NomCientifico" Type="varchar" MaxLength="100" />
+          <Property Name="esAlimento" Type="int" Nullable="false" />
+          <Property Name="NT_MedidaBase" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="IdUniMed" Type="int" Nullable="false" />
+          <Property Name="IdAlimGrp" Type="int" />
+          <Property Name="IdAlimFte" Type="int" />
+          <Property Name="FechaRegistro" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Alim_Fuente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cod" Type="int" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Alim_Grp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cod" Type="int" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DesCant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAlim" Type="int" Nullable="false" />
+          <Property Name="IdDes" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="FechaRegistro" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Desecho">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FactConv">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAlim" Type="int" Nullable="false" />
+          <Property Name="IdMed" Type="int" Nullable="false" />
+          <Property Name="Factor" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="FechaRegistro" Type="datetime" />
+        </EntityType>
+        <EntityType Name="FamRec">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="250" />
+          <Property Name="Base" Type="int" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Imagenes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Imagen" Type="image" Nullable="false" />
+          <Property Name="NomArchivo" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Log4net">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Level" Type="nvarchar" MaxLength="50" />
+          <Property Name="Logger" Type="nvarchar" MaxLength="255" />
+          <Property Name="Host" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Thread" Type="nvarchar" MaxLength="255" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="Exception" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="LoginAttempts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="IPNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="BrowserType" Type="nvarchar" MaxLength="200" />
+          <Property Name="Success" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Medida">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Nt_Cant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAlim" Type="int" Nullable="false" />
+          <Property Name="IdNtFte" Type="int" />
+          <Property Name="IdNut" Type="int" Nullable="false" />
+          <Property Name="Valor" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="ErrorEstandar" Type="int" />
+          <Property Name="NumObs" Type="int" />
+          <Property Name="FechaRegistro" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Nt_Fuente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cod" Type="int" />
+          <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Nt_Func">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Nt_Grp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="250" />
+          <Property Name="IdGrpCantNT" Type="int" />
+        </EntityType>
+        <EntityType Name="Nt_Grp_Cant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Nutriente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="int" />
+          <Property Name="Simbolo" Type="varchar" MaxLength="10" />
+          <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Tag" Type="varchar" MaxLength="20" />
+          <Property Name="Decimales" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="IdUniMed" Type="int" />
+          <Property Name="IdFuncNT" Type="int" />
+          <Property Name="IdGrpNT" Type="int" />
+          <Property Name="esEsencial" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Password">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="PasswordHash" Type="varchar" MaxLength="128" />
+          <Property Name="PasswordSalt" Type="varchar" MaxLength="10" />
+          <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="50" />
+          <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="50" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="CreatedByUserID" Type="nchar" MaxLength="10" />
+          <Property Name="FechaCreacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PermisosUsuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="IdRol" Type="int" Nullable="false" />
+          <Property Name="FechaInicio" Type="datetime" />
+          <Property Name="FechaTermino" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Receta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdFamRec" Type="int" Nullable="false" />
+          <Property Name="IdRecetaBase" Type="int" />
+          <Property Name="Nombre" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="Alias" Type="varchar" MaxLength="50" />
+          <Property Name="Ubicacion" Type="int" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="250" />
+          <Property Name="Preparacion" Type="varchar(max)" />
+          <Property Name="IdFoto" Type="int" />
+          <Property Name="IdEstado" Type="int" />
+          <Property Name="FechaRegistro" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RecProd">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdReceta" Type="int" Nullable="false" />
+          <Property Name="IdProducto" Type="int" Nullable="false" />
+          <Property Name="IdProveedor" Type="int" Nullable="false" />
+          <Property Name="Gramos" Type="decimal" Precision="9" Scale="5" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Rend">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RendCant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAlim" Type="int" Nullable="false" />
+          <Property Name="IdRend" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="FechaRegistro" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RolUsuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nota" Type="nvarchar" MaxLength="250" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UniMed">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="250" />
+          <Property Name="CodUMed" Type="varchar" MaxLength="6" />
+        </EntityType>
+        <EntityType Name="UserPasswords">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="IdPassword" Type="int" Nullable="false" />
+          <Property Name="ExternalUser" Type="bit" />
+        </EntityType>
+        <EntityType Name="UserPhotos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="IdImagen" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SupervisorUserID" Type="int" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Photo" Type="image" />
+          <Property Name="LanguageId" Type="int" />
+          <Property Name="UserNote" Type="nvarchar" MaxLength="500" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_CONV_FAC_MEASURE">
+          <End Role="Medida" Type="Self.Medida" Multiplicity="1" />
+          <End Role="FactConv" Type="Self.FactConv" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medida">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FactConv">
+              <PropertyRef Name="IdMed" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONV_FAC_Producto">
+          <End Role="Alim" Type="Self.Alim" Multiplicity="1" />
+          <End Role="FactConv" Type="Self.FactConv" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alim">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FactConv">
+              <PropertyRef Name="IdAlim" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoginAttempts_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="LoginAttempts" Type="Self.LoginAttempts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LoginAttempts">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NT_AMT_NT_NM">
+          <End Role="Nutriente" Type="Self.Nutriente" Multiplicity="1" />
+          <End Role="Nt_Cant" Type="Self.Nt_Cant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nutriente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Nt_Cant">
+              <PropertyRef Name="IdNut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NT_AMT_NT_SRC">
+          <End Role="Nt_Fuente" Type="Self.Nt_Fuente" Multiplicity="0..1" />
+          <End Role="Nt_Cant" Type="Self.Nt_Cant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nt_Fuente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Nt_Cant">
+              <PropertyRef Name="IdNtFte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NT_AMT_Producto">
+          <End Role="Alim" Type="Self.Alim" Multiplicity="1" />
+          <End Role="Nt_Cant" Type="Self.Nt_Cant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alim">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Nt_Cant">
+              <PropertyRef Name="IdAlim" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NT_GRP_NT_GRP_CANT">
+          <End Role="Nt_Grp_Cant" Type="Self.Nt_Grp_Cant" Multiplicity="0..1" />
+          <End Role="Nt_Grp" Type="Self.Nt_Grp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nt_Grp_Cant">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Nt_Grp">
+              <PropertyRef Name="IdGrpCantNT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NT_NM_NT_FUNC">
+          <End Role="Nt_Func" Type="Self.Nt_Func" Multiplicity="0..1" />
+          <End Role="Nutriente" Type="Self.Nutriente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nt_Func">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Nutriente">
+              <PropertyRef Name="IdFuncNT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NT_NM_NT_GRP">
+          <End Role="Nt_Grp" Type="Self.Nt_Grp" Multiplicity="0..1" />
+          <End Role="Nutriente" Type="Self.Nutriente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nt_Grp">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Nutriente">
+              <PropertyRef Name="IdGrpNT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Producto_FOOD_GRP">
+          <End Role="Alim_Grp" Type="Self.Alim_Grp" Multiplicity="0..1" />
+          <End Role="Alim" Type="Self.Alim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alim_Grp">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Alim">
+              <PropertyRef Name="IdAlimGrp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Producto_FOOD_SRC">
+          <End Role="Alim_Fuente" Type="Self.Alim_Fuente" Multiplicity="0..1" />
+          <End Role="Alim" Type="Self.Alim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alim_Fuente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Alim">
+              <PropertyRef Name="IdAlimFte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Producto_UnidadMedida">
+          <End Role="UniMed" Type="Self.UniMed" Multiplicity="1" />
+          <End Role="Alim" Type="Self.Alim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UniMed">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Alim">
+              <PropertyRef Name="IdUniMed" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Receta_Familia">
+          <End Role="FamRec" Type="Self.FamRec" Multiplicity="1" />
+          <End Role="Receta" Type="Self.Receta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FamRec">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Receta">
+              <PropertyRef Name="IdFamRec" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Receta_Producto_Producto">
+          <End Role="Alim" Type="Self.Alim" Multiplicity="1" />
+          <End Role="RecProd" Type="Self.RecProd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alim">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecProd">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Receta_Producto_Receta">
+          <End Role="Receta" Type="Self.Receta" Multiplicity="1" />
+          <End Role="RecProd" Type="Self.RecProd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Receta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecProd">
+              <PropertyRef Name="IdReceta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFUSE_Producto">
+          <End Role="Alim" Type="Self.Alim" Multiplicity="1" />
+          <End Role="DesCant" Type="Self.DesCant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alim">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DesCant">
+              <PropertyRef Name="IdAlim" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFUSE_REFU_NM">
+          <End Role="Desecho" Type="Self.Desecho" Multiplicity="1" />
+          <End Role="DesCant" Type="Self.DesCant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Desecho">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DesCant">
+              <PropertyRef Name="IdDes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolesUsuario_RolUsuario">
+          <End Role="RolUsuario" Type="Self.RolUsuario" Multiplicity="1" />
+          <End Role="PermisosUsuario" Type="Self.PermisosUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RolUsuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PermisosUsuario">
+              <PropertyRef Name="IdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolesUsuario_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="PermisosUsuario" Type="Self.PermisosUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PermisosUsuario">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserPasswords_Password">
+          <End Role="Password" Type="Self.Password" Multiplicity="1" />
+          <End Role="UserPasswords" Type="Self.UserPasswords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Password">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPasswords">
+              <PropertyRef Name="IdPassword" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserPasswords_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="UserPasswords" Type="Self.UserPasswords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPasswords">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserPhotos_Imagenes">
+          <End Role="Imagenes" Type="Self.Imagenes" Multiplicity="1" />
+          <End Role="UserPhotos" Type="Self.UserPhotos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Imagenes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPhotos">
+              <PropertyRef Name="IdImagen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserPhotos_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="UserPhotos" Type="Self.UserPhotos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPhotos">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YIELD_Producto">
+          <End Role="Alim" Type="Self.Alim" Multiplicity="1" />
+          <End Role="RendCant" Type="Self.RendCant" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Alim">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RendCant">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YIELD_YLD_NM">
+          <End Role="Rend" Type="Self.Rend" Multiplicity="1" />
+          <End Role="RendCant" Type="Self.RendCant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rend">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RendCant">
+              <PropertyRef Name="IdRend" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Usp_InfoNutri_FindBy_IdProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdProducto" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Usp_Nutrientes_ShowAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Usp_ProdInfoNutricional_ShowAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="WebAppDatosDataModelStoreContainer">
+          <EntitySet Name="Alim" EntityType="Self.Alim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Alim_Fuente" EntityType="Self.Alim_Fuente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Alim_Grp" EntityType="Self.Alim_Grp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DesCant" EntityType="Self.DesCant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Desecho" EntityType="Self.Desecho" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FactConv" EntityType="Self.FactConv" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FamRec" EntityType="Self.FamRec" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Imagenes" EntityType="Self.Imagenes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Log4net" EntityType="Self.Log4net" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginAttempts" EntityType="Self.LoginAttempts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Medida" EntityType="Self.Medida" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nt_Cant" EntityType="Self.Nt_Cant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nt_Fuente" EntityType="Self.Nt_Fuente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nt_Func" EntityType="Self.Nt_Func" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nt_Grp" EntityType="Self.Nt_Grp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nt_Grp_Cant" EntityType="Self.Nt_Grp_Cant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nutriente" EntityType="Self.Nutriente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Password" EntityType="Self.Password" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PermisosUsuario" EntityType="Self.PermisosUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Receta" EntityType="Self.Receta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecProd" EntityType="Self.RecProd" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rend" EntityType="Self.Rend" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RendCant" EntityType="Self.RendCant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RolUsuario" EntityType="Self.RolUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UniMed" EntityType="Self.UniMed" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserPasswords" EntityType="Self.UserPasswords" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserPhotos" EntityType="Self.UserPhotos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CONV_FAC_MEASURE" Association="Self.FK_CONV_FAC_MEASURE">
+            <End Role="Medida" EntitySet="Medida" />
+            <End Role="FactConv" EntitySet="FactConv" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONV_FAC_Producto" Association="Self.FK_CONV_FAC_Producto">
+            <End Role="Alim" EntitySet="Alim" />
+            <End Role="FactConv" EntitySet="FactConv" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoginAttempts_Usuario" Association="Self.FK_LoginAttempts_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="LoginAttempts" EntitySet="LoginAttempts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NT_AMT_NT_NM" Association="Self.FK_NT_AMT_NT_NM">
+            <End Role="Nutriente" EntitySet="Nutriente" />
+            <End Role="Nt_Cant" EntitySet="Nt_Cant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NT_AMT_NT_SRC" Association="Self.FK_NT_AMT_NT_SRC">
+            <End Role="Nt_Fuente" EntitySet="Nt_Fuente" />
+            <End Role="Nt_Cant" EntitySet="Nt_Cant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NT_AMT_Producto" Association="Self.FK_NT_AMT_Producto">
+            <End Role="Alim" EntitySet="Alim" />
+            <End Role="Nt_Cant" EntitySet="Nt_Cant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NT_GRP_NT_GRP_CANT" Association="Self.FK_NT_GRP_NT_GRP_CANT">
+            <End Role="Nt_Grp_Cant" EntitySet="Nt_Grp_Cant" />
+            <End Role="Nt_Grp" EntitySet="Nt_Grp" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NT_NM_NT_FUNC" Association="Self.FK_NT_NM_NT_FUNC">
+            <End Role="Nt_Func" EntitySet="Nt_Func" />
+            <End Role="Nutriente" EntitySet="Nutriente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NT_NM_NT_GRP" Association="Self.FK_NT_NM_NT_GRP">
+            <End Role="Nt_Grp" EntitySet="Nt_Grp" />
+            <End Role="Nutriente" EntitySet="Nutriente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Producto_FOOD_GRP" Association="Self.FK_Producto_FOOD_GRP">
+            <End Role="Alim_Grp" EntitySet="Alim_Grp" />
+            <End Role="Alim" EntitySet="Alim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Producto_FOOD_SRC" Association="Self.FK_Producto_FOOD_SRC">
+            <End Role="Alim_Fuente" EntitySet="Alim_Fuente" />
+            <End Role="Alim" EntitySet="Alim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Producto_UnidadMedida" Association="Self.FK_Producto_UnidadMedida">
+            <End Role="UniMed" EntitySet="UniMed" />
+            <End Role="Alim" EntitySet="Alim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Receta_Familia" Association="Self.FK_Receta_Familia">
+            <End Role="FamRec" EntitySet="FamRec" />
+            <End Role="Receta" EntitySet="Receta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Receta_Producto_Producto" Association="Self.FK_Receta_Producto_Producto">
+            <End Role="Alim" EntitySet="Alim" />
+            <End Role="RecProd" EntitySet="RecProd" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Receta_Producto_Receta" Association="Self.FK_Receta_Producto_Receta">
+            <End Role="Receta" EntitySet="Receta" />
+            <End Role="RecProd" EntitySet="RecProd" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFUSE_Producto" Association="Self.FK_REFUSE_Producto">
+            <End Role="Alim" EntitySet="Alim" />
+            <End Role="DesCant" EntitySet="DesCant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFUSE_REFU_NM" Association="Self.FK_REFUSE_REFU_NM">
+            <End Role="Desecho" EntitySet="Desecho" />
+            <End Role="DesCant" EntitySet="DesCant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolesUsuario_RolUsuario" Association="Self.FK_RolesUsuario_RolUsuario">
+            <End Role="RolUsuario" EntitySet="RolUsuario" />
+            <End Role="PermisosUsuario" EntitySet="PermisosUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolesUsuario_Usuario" Association="Self.FK_RolesUsuario_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="PermisosUsuario" EntitySet="PermisosUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserPasswords_Password" Association="Self.FK_UserPasswords_Password">
+            <End Role="Password" EntitySet="Password" />
+            <End Role="UserPasswords" EntitySet="UserPasswords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserPasswords_Usuario" Association="Self.FK_UserPasswords_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="UserPasswords" EntitySet="UserPasswords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserPhotos_Imagenes" Association="Self.FK_UserPhotos_Imagenes">
+            <End Role="Imagenes" EntitySet="Imagenes" />
+            <End Role="UserPhotos" EntitySet="UserPhotos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserPhotos_Usuario" Association="Self.FK_UserPhotos_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="UserPhotos" EntitySet="UserPhotos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YIELD_Producto" Association="Self.FK_YIELD_Producto">
+            <End Role="Alim" EntitySet="Alim" />
+            <End Role="RendCant" EntitySet="RendCant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YIELD_YLD_NM" Association="Self.FK_YIELD_YLD_NM">
+            <End Role="Rend" EntitySet="Rend" />
+            <End Role="RendCant" EntitySet="RendCant" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WebApp.Datos.DataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Alim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdEstado" Type="Int32" />
+          <Property Name="FactorRendimiento" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="FactorDescuento" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Fraccionado" Type="Int32" />
+          <Property Name="ConversionInyectado" Type="Int32" />
+          <Property Name="FactorConversion" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="Inactivo" Type="Int32" />
+          <Property Name="NomAbreviado" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="NomCientifico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="esAlimento" Type="Int32" Nullable="false" />
+          <Property Name="NT_MedidaBase" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="IdUniMed" Type="Int32" Nullable="false" />
+          <Property Name="IdAlimGrp" Type="Int32" />
+          <Property Name="IdAlimFte" Type="Int32" />
+          <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="FactConv" Relationship="Self.FK_CONV_FAC_Producto" FromRole="Alim" ToRole="FactConv" />
+          <NavigationProperty Name="Nt_Cant" Relationship="Self.FK_NT_AMT_Producto" FromRole="Alim" ToRole="Nt_Cant" />
+          <NavigationProperty Name="Alim_Grp" Relationship="Self.FK_Producto_FOOD_GRP" FromRole="Alim" ToRole="Alim_Grp" />
+          <NavigationProperty Name="Alim_Fuente" Relationship="Self.FK_Producto_FOOD_SRC" FromRole="Alim" ToRole="Alim_Fuente" />
+          <NavigationProperty Name="UniMed" Relationship="Self.FK_Producto_UnidadMedida" FromRole="Alim" ToRole="UniMed" />
+          <NavigationProperty Name="RecProd" Relationship="Self.FK_Receta_Producto_Producto" FromRole="Alim" ToRole="RecProd" />
+          <NavigationProperty Name="DesCant" Relationship="Self.FK_REFUSE_Producto" FromRole="Alim" ToRole="DesCant" />
+          <NavigationProperty Name="RendCant" Relationship="Self.FK_YIELD_Producto" FromRole="Alim" ToRole="RendCant" />
+        </EntityType>
+        <EntityType Name="Alim_Fuente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cod" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Alim" Relationship="Self.FK_Producto_FOOD_SRC" FromRole="Alim_Fuente" ToRole="Alim" />
+        </EntityType>
+        <EntityType Name="Alim_Grp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cod" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Alim" Relationship="Self.FK_Producto_FOOD_GRP" FromRole="Alim_Grp" ToRole="Alim" />
+        </EntityType>
+        <EntityType Name="DesCant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAlim" Type="Int32" Nullable="false" />
+          <Property Name="IdDes" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Alim" Relationship="Self.FK_REFUSE_Producto" FromRole="DesCant" ToRole="Alim" />
+          <NavigationProperty Name="Desecho" Relationship="Self.FK_REFUSE_REFU_NM" FromRole="DesCant" ToRole="Desecho" />
+        </EntityType>
+        <EntityType Name="Desecho">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DesCant" Relationship="Self.FK_REFUSE_REFU_NM" FromRole="Desecho" ToRole="DesCant" />
+        </EntityType>
+        <EntityType Name="FactConv">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAlim" Type="Int32" Nullable="false" />
+          <Property Name="IdMed" Type="Int32" Nullable="false" />
+          <Property Name="Factor" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Alim" Relationship="Self.FK_CONV_FAC_Producto" FromRole="FactConv" ToRole="Alim" />
+          <NavigationProperty Name="Medida" Relationship="WebApp.Datos.DataModel.FK_CONV_FAC_MEASURE" FromRole="FactConv" ToRole="Medida" />
+        </EntityType>
+        <EntityType Name="FamRec">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Base" Type="Int32" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Receta" Relationship="Self.FK_Receta_Familia" FromRole="FamRec" ToRole="Receta" />
+        </EntityType>
+        <EntityType Name="Nt_Cant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAlim" Type="Int32" Nullable="false" />
+          <Property Name="IdNtFte" Type="Int32" />
+          <Property Name="IdNut" Type="Int32" Nullable="false" />
+          <Property Name="Valor" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="ErrorEstandar" Type="Int32" />
+          <Property Name="NumObs" Type="Int32" />
+          <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Alim" Relationship="Self.FK_NT_AMT_Producto" FromRole="Nt_Cant" ToRole="Alim" />
+          <NavigationProperty Name="Nutriente" Relationship="Self.FK_NT_AMT_NT_NM" FromRole="Nt_Cant" ToRole="Nutriente" />
+          <NavigationProperty Name="Nt_Fuente" Relationship="Self.FK_NT_AMT_NT_SRC" FromRole="Nt_Cant" ToRole="Nt_Fuente" />
+        </EntityType>
+        <EntityType Name="Nt_Fuente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cod" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Nt_Cant" Relationship="Self.FK_NT_AMT_NT_SRC" FromRole="Nt_Fuente" ToRole="Nt_Cant" />
+        </EntityType>
+        <EntityType Name="Nt_Func">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Nutriente" Relationship="Self.FK_NT_NM_NT_FUNC" FromRole="Nt_Func" ToRole="Nutriente" />
+        </EntityType>
+        <EntityType Name="Nt_Grp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="IdGrpCantNT" Type="Int32" />
+          <NavigationProperty Name="Nt_Grp_Cant" Relationship="Self.FK_NT_GRP_NT_GRP_CANT" FromRole="Nt_Grp" ToRole="Nt_Grp_Cant" />
+          <NavigationProperty Name="Nutriente" Relationship="Self.FK_NT_NM_NT_GRP" FromRole="Nt_Grp" ToRole="Nutriente" />
+        </EntityType>
+        <EntityType Name="Nt_Grp_Cant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Nt_Grp" Relationship="Self.FK_NT_GRP_NT_GRP_CANT" FromRole="Nt_Grp_Cant" ToRole="Nt_Grp" />
+        </EntityType>
+        <EntityType Name="Nutriente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="Int32" />
+          <Property Name="Simbolo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tag" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Decimales" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IdUniMed" Type="Int32" />
+          <Property Name="IdFuncNT" Type="Int32" />
+          <Property Name="IdGrpNT" Type="Int32" />
+          <Property Name="esEsencial" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Nt_Cant" Relationship="Self.FK_NT_AMT_NT_NM" FromRole="Nutriente" ToRole="Nt_Cant" />
+          <NavigationProperty Name="Nt_Func" Relationship="Self.FK_NT_NM_NT_FUNC" FromRole="Nutriente" ToRole="Nt_Func" />
+          <NavigationProperty Name="Nt_Grp" Relationship="Self.FK_NT_NM_NT_GRP" FromRole="Nutriente" ToRole="Nt_Grp" />
+        </EntityType>
+        <EntityType Name="Receta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdFamRec" Type="Int32" Nullable="false" />
+          <Property Name="IdRecetaBase" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Alias" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ubicacion" Type="Int32" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Preparacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IdFoto" Type="Int32" />
+          <Property Name="IdEstado" Type="Int32" />
+          <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="FamRec" Relationship="Self.FK_Receta_Familia" FromRole="Receta" ToRole="FamRec" />
+          <NavigationProperty Name="RecProd" Relationship="Self.FK_Receta_Producto_Receta" FromRole="Receta" ToRole="RecProd" />
+        </EntityType>
+        <EntityType Name="RecProd">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdReceta" Type="Int32" Nullable="false" />
+          <Property Name="IdProducto" Type="Int32" Nullable="false" />
+          <Property Name="IdProveedor" Type="Int32" Nullable="false" />
+          <Property Name="Gramos" Type="Decimal" Precision="9" Scale="5" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Alim" Relationship="Self.FK_Receta_Producto_Producto" FromRole="RecProd" ToRole="Alim" />
+          <NavigationProperty Name="Receta" Relationship="Self.FK_Receta_Producto_Receta" FromRole="RecProd" ToRole="Receta" />
+        </EntityType>
+        <EntityType Name="Rend">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="RendCant" Relationship="Self.FK_YIELD_YLD_NM" FromRole="Rend" ToRole="RendCant" />
+        </EntityType>
+        <EntityType Name="RendCant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAlim" Type="Int32" Nullable="false" />
+          <Property Name="IdRend" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Alim" Relationship="Self.FK_YIELD_Producto" FromRole="RendCant" ToRole="Alim" />
+          <NavigationProperty Name="Rend" Relationship="Self.FK_YIELD_YLD_NM" FromRole="RendCant" ToRole="Rend" />
+        </EntityType>
+        <EntityType Name="UniMed">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CodUMed" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Alim" Relationship="Self.FK_Producto_UnidadMedida" FromRole="UniMed" ToRole="Alim" />
+        </EntityType>
+        <Association Name="FK_CONV_FAC_Producto">
+          <End Role="Alim" Type="Self.Alim" Multiplicity="1" />
+          <End Role="FactConv" Type="Self.FactConv" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alim">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FactConv">
+              <PropertyRef Name="IdAlim" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NT_AMT_Producto">
+          <End Role="Alim" Type="Self.Alim" Multiplicity="1" />
+          <End Role="Nt_Cant" Type="Self.Nt_Cant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alim">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Nt_Cant">
+              <PropertyRef Name="IdAlim" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Producto_FOOD_GRP">
+          <End Role="Alim_Grp" Type="Self.Alim_Grp" Multiplicity="0..1" />
+          <End Role="Alim" Type="Self.Alim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alim_Grp">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Alim">
+              <PropertyRef Name="IdAlimGrp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Producto_FOOD_SRC">
+          <End Role="Alim_Fuente" Type="Self.Alim_Fuente" Multiplicity="0..1" />
+          <End Role="Alim" Type="Self.Alim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alim_Fuente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Alim">
+              <PropertyRef Name="IdAlimFte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Producto_UnidadMedida">
+          <End Role="UniMed" Type="Self.UniMed" Multiplicity="1" />
+          <End Role="Alim" Type="Self.Alim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UniMed">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Alim">
+              <PropertyRef Name="IdUniMed" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Receta_Producto_Producto">
+          <End Role="Alim" Type="Self.Alim" Multiplicity="1" />
+          <End Role="RecProd" Type="Self.RecProd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alim">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecProd">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFUSE_Producto">
+          <End Role="Alim" Type="Self.Alim" Multiplicity="1" />
+          <End Role="DesCant" Type="Self.DesCant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alim">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DesCant">
+              <PropertyRef Name="IdAlim" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YIELD_Producto">
+          <End Role="Alim" Type="Self.Alim" Multiplicity="1" />
+          <End Role="RendCant" Type="Self.RendCant" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Alim">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RendCant">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REFUSE_REFU_NM">
+          <End Role="Desecho" Type="Self.Desecho" Multiplicity="1" />
+          <End Role="DesCant" Type="Self.DesCant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Desecho">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DesCant">
+              <PropertyRef Name="IdDes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Receta_Familia">
+          <End Role="FamRec" Type="Self.FamRec" Multiplicity="1" />
+          <End Role="Receta" Type="Self.Receta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FamRec">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Receta">
+              <PropertyRef Name="IdFamRec" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NT_AMT_NT_NM">
+          <End Role="Nutriente" Type="Self.Nutriente" Multiplicity="1" />
+          <End Role="Nt_Cant" Type="Self.Nt_Cant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nutriente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Nt_Cant">
+              <PropertyRef Name="IdNut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NT_AMT_NT_SRC">
+          <End Role="Nt_Fuente" Type="Self.Nt_Fuente" Multiplicity="0..1" />
+          <End Role="Nt_Cant" Type="Self.Nt_Cant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nt_Fuente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Nt_Cant">
+              <PropertyRef Name="IdNtFte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NT_NM_NT_FUNC">
+          <End Role="Nt_Func" Type="Self.Nt_Func" Multiplicity="0..1" />
+          <End Role="Nutriente" Type="Self.Nutriente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nt_Func">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Nutriente">
+              <PropertyRef Name="IdFuncNT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NT_GRP_NT_GRP_CANT">
+          <End Role="Nt_Grp_Cant" Type="Self.Nt_Grp_Cant" Multiplicity="0..1" />
+          <End Role="Nt_Grp" Type="Self.Nt_Grp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nt_Grp_Cant">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Nt_Grp">
+              <PropertyRef Name="IdGrpCantNT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NT_NM_NT_GRP">
+          <End Role="Nt_Grp" Type="Self.Nt_Grp" Multiplicity="0..1" />
+          <End Role="Nutriente" Type="Self.Nutriente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nt_Grp">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Nutriente">
+              <PropertyRef Name="IdGrpNT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Receta_Producto_Receta">
+          <End Role="Receta" Type="Self.Receta" Multiplicity="1" />
+          <End Role="RecProd" Type="Self.RecProd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Receta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RecProd">
+              <PropertyRef Name="IdReceta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YIELD_YLD_NM">
+          <End Role="Rend" Type="Self.Rend" Multiplicity="1" />
+          <End Role="RendCant" Type="Self.RendCant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rend">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RendCant">
+              <PropertyRef Name="IdRend" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatabaseContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Alim" EntityType="Self.Alim" />
+          <EntitySet Name="Alim_Fuente" EntityType="Self.Alim_Fuente" />
+          <EntitySet Name="Alim_Grp" EntityType="Self.Alim_Grp" />
+          <EntitySet Name="DesCant" EntityType="Self.DesCant" />
+          <EntitySet Name="Desecho" EntityType="Self.Desecho" />
+          <EntitySet Name="FactConv" EntityType="Self.FactConv" />
+          <EntitySet Name="FamRec" EntityType="Self.FamRec" />
+          <EntitySet Name="Nt_Cant" EntityType="Self.Nt_Cant" />
+          <EntitySet Name="Nt_Fuente" EntityType="Self.Nt_Fuente" />
+          <EntitySet Name="Nt_Func" EntityType="Self.Nt_Func" />
+          <EntitySet Name="Nt_Grp" EntityType="Self.Nt_Grp" />
+          <EntitySet Name="Nt_Grp_Cant" EntityType="Self.Nt_Grp_Cant" />
+          <EntitySet Name="Nutriente" EntityType="Self.Nutriente" />
+          <EntitySet Name="Receta" EntityType="Self.Receta" />
+          <EntitySet Name="RecProd" EntityType="Self.RecProd" />
+          <EntitySet Name="Rend" EntityType="Self.Rend" />
+          <EntitySet Name="RendCant" EntityType="Self.RendCant" />
+          <EntitySet Name="UniMed" EntityType="Self.UniMed" />
+          <AssociationSet Name="FK_CONV_FAC_Producto" Association="Self.FK_CONV_FAC_Producto">
+            <End Role="Alim" EntitySet="Alim" />
+            <End Role="FactConv" EntitySet="FactConv" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NT_AMT_Producto" Association="Self.FK_NT_AMT_Producto">
+            <End Role="Alim" EntitySet="Alim" />
+            <End Role="Nt_Cant" EntitySet="Nt_Cant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Producto_FOOD_GRP" Association="Self.FK_Producto_FOOD_GRP">
+            <End Role="Alim_Grp" EntitySet="Alim_Grp" />
+            <End Role="Alim" EntitySet="Alim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Producto_FOOD_SRC" Association="Self.FK_Producto_FOOD_SRC">
+            <End Role="Alim_Fuente" EntitySet="Alim_Fuente" />
+            <End Role="Alim" EntitySet="Alim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Producto_UnidadMedida" Association="Self.FK_Producto_UnidadMedida">
+            <End Role="UniMed" EntitySet="UniMed" />
+            <End Role="Alim" EntitySet="Alim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Receta_Producto_Producto" Association="Self.FK_Receta_Producto_Producto">
+            <End Role="Alim" EntitySet="Alim" />
+            <End Role="RecProd" EntitySet="RecProd" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFUSE_Producto" Association="Self.FK_REFUSE_Producto">
+            <End Role="Alim" EntitySet="Alim" />
+            <End Role="DesCant" EntitySet="DesCant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YIELD_Producto" Association="Self.FK_YIELD_Producto">
+            <End Role="Alim" EntitySet="Alim" />
+            <End Role="RendCant" EntitySet="RendCant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REFUSE_REFU_NM" Association="Self.FK_REFUSE_REFU_NM">
+            <End Role="Desecho" EntitySet="Desecho" />
+            <End Role="DesCant" EntitySet="DesCant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Receta_Familia" Association="Self.FK_Receta_Familia">
+            <End Role="FamRec" EntitySet="FamRec" />
+            <End Role="Receta" EntitySet="Receta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NT_AMT_NT_NM" Association="Self.FK_NT_AMT_NT_NM">
+            <End Role="Nutriente" EntitySet="Nutriente" />
+            <End Role="Nt_Cant" EntitySet="Nt_Cant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NT_AMT_NT_SRC" Association="Self.FK_NT_AMT_NT_SRC">
+            <End Role="Nt_Fuente" EntitySet="Nt_Fuente" />
+            <End Role="Nt_Cant" EntitySet="Nt_Cant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NT_NM_NT_FUNC" Association="Self.FK_NT_NM_NT_FUNC">
+            <End Role="Nt_Func" EntitySet="Nt_Func" />
+            <End Role="Nutriente" EntitySet="Nutriente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NT_GRP_NT_GRP_CANT" Association="Self.FK_NT_GRP_NT_GRP_CANT">
+            <End Role="Nt_Grp_Cant" EntitySet="Nt_Grp_Cant" />
+            <End Role="Nt_Grp" EntitySet="Nt_Grp" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NT_NM_NT_GRP" Association="Self.FK_NT_NM_NT_GRP">
+            <End Role="Nt_Grp" EntitySet="Nt_Grp" />
+            <End Role="Nutriente" EntitySet="Nutriente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Receta_Producto_Receta" Association="Self.FK_Receta_Producto_Receta">
+            <End Role="Receta" EntitySet="Receta" />
+            <End Role="RecProd" EntitySet="RecProd" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YIELD_YLD_NM" Association="Self.FK_YIELD_YLD_NM">
+            <End Role="Rend" EntitySet="Rend" />
+            <End Role="RendCant" EntitySet="RendCant" />
+          </AssociationSet>
+          <FunctionImport Name="Usp_InfoNutri_FindBy_IdProducto">
+          <Parameter Name="IdProducto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Usp_Nutrientes_ShowAll" ReturnType="Collection(WebApp.Datos.DataModel.Usp_Nutrientes_ShowAll_Result)" />
+          <FunctionImport Name="Usp_ProdInfoNutricional_ShowAll" />
+          <EntitySet Name="Medida" EntityType="WebApp.Datos.DataModel.Medida" />
+          <AssociationSet Name="FK_CONV_FAC_MEASURE" Association="WebApp.Datos.DataModel.FK_CONV_FAC_MEASURE">
+            <End Role="Medida" EntitySet="Medida" />
+            <End Role="FactConv" EntitySet="FactConv" />
+          </AssociationSet>
+          <EntitySet Name="Log4net" EntityType="WebApp.Datos.DataModel.Log4net" />
+          <EntitySet Name="LoginAttempts" EntityType="WebApp.Datos.DataModel.LoginAttempts" />
+          <EntitySet Name="Password" EntityType="WebApp.Datos.DataModel.Password" />
+          <EntitySet Name="PermisosUsuario" EntityType="WebApp.Datos.DataModel.PermisosUsuario" />
+          <EntitySet Name="RolUsuario" EntityType="WebApp.Datos.DataModel.RolUsuario" />
+          <EntitySet Name="UserPasswords" EntityType="WebApp.Datos.DataModel.UserPasswords" />
+          <EntitySet Name="Usuario" EntityType="WebApp.Datos.DataModel.Usuario" />
+          <AssociationSet Name="FK_LoginAttempts_Usuario" Association="WebApp.Datos.DataModel.FK_LoginAttempts_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="LoginAttempts" EntitySet="LoginAttempts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserPasswords_Password" Association="WebApp.Datos.DataModel.FK_UserPasswords_Password">
+            <End Role="Password" EntitySet="Password" />
+            <End Role="UserPasswords" EntitySet="UserPasswords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolesUsuario_RolUsuario" Association="WebApp.Datos.DataModel.FK_RolesUsuario_RolUsuario">
+            <End Role="RolUsuario" EntitySet="RolUsuario" />
+            <End Role="PermisosUsuario" EntitySet="PermisosUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolesUsuario_Usuario" Association="WebApp.Datos.DataModel.FK_RolesUsuario_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="PermisosUsuario" EntitySet="PermisosUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserPasswords_Usuario" Association="WebApp.Datos.DataModel.FK_UserPasswords_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="UserPasswords" EntitySet="UserPasswords" />
+          </AssociationSet>
+          <EntitySet Name="Imagenes" EntityType="WebApp.Datos.DataModel.Imagenes" />
+          <EntitySet Name="UserPhotos" EntityType="WebApp.Datos.DataModel.UserPhotos" />
+          <AssociationSet Name="FK_UserPhotos_Imagenes" Association="WebApp.Datos.DataModel.FK_UserPhotos_Imagenes">
+            <End Role="Imagenes" EntitySet="Imagenes" />
+            <End Role="UserPhotos" EntitySet="UserPhotos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserPhotos_Usuario" Association="WebApp.Datos.DataModel.FK_UserPhotos_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="UserPhotos" EntitySet="UserPhotos" />
+          </AssociationSet>
+          </EntityContainer>
+        <ComplexType Name="Usp_Nutrientes_ShowAll_Result">
+          <Property Type="Int32" Name="IdNut" Nullable="false" />
+          <Property Type="String" Name="Nutriente" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="Simbolo" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="IdUniMed" Nullable="true" />
+          <Property Type="String" Name="UniMed" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="IdGrpCantNT" Nullable="true" />
+          <Property Type="String" Name="Clasificacion" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="IdGrpNT" Nullable="true" />
+          <Property Type="String" Name="TipoNutriente" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="IdFuncNT" Nullable="true" />
+          <Property Type="String" Name="Funcion" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="Medida">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FactConv" Relationship="WebApp.Datos.DataModel.FK_CONV_FAC_MEASURE" FromRole="Medida" ToRole="FactConv" />
+        </EntityType>
+        <Association Name="FK_CONV_FAC_MEASURE">
+          <End Type="WebApp.Datos.DataModel.Medida" Role="Medida" Multiplicity="1" />
+          <End Type="WebApp.Datos.DataModel.FactConv" Role="FactConv" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medida">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FactConv">
+              <PropertyRef Name="IdMed" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Log4net">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Level" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Logger" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Host" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Thread" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Exception" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LoginAttempts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IPNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BrowserType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Success" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Usuario" Relationship="WebApp.Datos.DataModel.FK_LoginAttempts_Usuario" FromRole="LoginAttempts" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Password">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Password1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordHash" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="PasswordSalt" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PasswordAnswer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordQuestion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="CreatedByUserID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="UserPasswords" Relationship="WebApp.Datos.DataModel.FK_UserPasswords_Password" FromRole="Password" ToRole="UserPasswords" />
+        </EntityType>
+        <EntityType Name="PermisosUsuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="IdRol" Type="Int32" Nullable="false" />
+          <Property Name="FechaInicio" Type="DateTime" Precision="3" />
+          <Property Name="FechaTermino" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="RolUsuario" Relationship="WebApp.Datos.DataModel.FK_RolesUsuario_RolUsuario" FromRole="PermisosUsuario" ToRole="RolUsuario" />
+          <NavigationProperty Name="Usuario" Relationship="WebApp.Datos.DataModel.FK_RolesUsuario_Usuario" FromRole="PermisosUsuario" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="RolUsuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nota" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="PermisosUsuario" Relationship="WebApp.Datos.DataModel.FK_RolesUsuario_RolUsuario" FromRole="RolUsuario" ToRole="PermisosUsuario" />
+        </EntityType>
+        <EntityType Name="UserPasswords">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="IdPassword" Type="Int32" Nullable="false" />
+          <Property Name="ExternalUser" Type="Boolean" />
+          <NavigationProperty Name="Password" Relationship="WebApp.Datos.DataModel.FK_UserPasswords_Password" FromRole="UserPasswords" ToRole="Password" />
+          <NavigationProperty Name="Usuario" Relationship="WebApp.Datos.DataModel.FK_UserPasswords_Usuario" FromRole="UserPasswords" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SupervisorUserID" Type="Int32" />
+          <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="LanguageId" Type="Int32" />
+          <Property Name="UserNote" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="LoginAttempts" Relationship="WebApp.Datos.DataModel.FK_LoginAttempts_Usuario" FromRole="Usuario" ToRole="LoginAttempts" />
+          <NavigationProperty Name="PermisosUsuario" Relationship="WebApp.Datos.DataModel.FK_RolesUsuario_Usuario" FromRole="Usuario" ToRole="PermisosUsuario" />
+          <NavigationProperty Name="UserPasswords" Relationship="WebApp.Datos.DataModel.FK_UserPasswords_Usuario" FromRole="Usuario" ToRole="UserPasswords" />
+          <NavigationProperty Name="UserPhotos" Relationship="WebApp.Datos.DataModel.FK_UserPhotos_Usuario" FromRole="Usuario" ToRole="UserPhotos" />
+        </EntityType>
+        <Association Name="FK_LoginAttempts_Usuario">
+          <End Type="WebApp.Datos.DataModel.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="WebApp.Datos.DataModel.LoginAttempts" Role="LoginAttempts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LoginAttempts">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserPasswords_Password">
+          <End Type="WebApp.Datos.DataModel.Password" Role="Password" Multiplicity="1" />
+          <End Type="WebApp.Datos.DataModel.UserPasswords" Role="UserPasswords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Password">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPasswords">
+              <PropertyRef Name="IdPassword" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolesUsuario_RolUsuario">
+          <End Type="WebApp.Datos.DataModel.RolUsuario" Role="RolUsuario" Multiplicity="1" />
+          <End Type="WebApp.Datos.DataModel.PermisosUsuario" Role="PermisosUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RolUsuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PermisosUsuario">
+              <PropertyRef Name="IdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolesUsuario_Usuario">
+          <End Type="WebApp.Datos.DataModel.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="WebApp.Datos.DataModel.PermisosUsuario" Role="PermisosUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PermisosUsuario">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserPasswords_Usuario">
+          <End Type="WebApp.Datos.DataModel.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="WebApp.Datos.DataModel.UserPasswords" Role="UserPasswords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPasswords">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Imagenes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Imagen" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="NomArchivo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserPhotos" Relationship="WebApp.Datos.DataModel.FK_UserPhotos_Imagenes" FromRole="Imagenes" ToRole="UserPhotos" />
+        </EntityType>
+        <EntityType Name="UserPhotos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="IdImagen" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Imagenes" Relationship="WebApp.Datos.DataModel.FK_UserPhotos_Imagenes" FromRole="UserPhotos" ToRole="Imagenes" />
+          <NavigationProperty Name="Usuario" Relationship="WebApp.Datos.DataModel.FK_UserPhotos_Usuario" FromRole="UserPhotos" ToRole="Usuario" />
+        </EntityType>
+        <Association Name="FK_UserPhotos_Imagenes">
+          <End Type="WebApp.Datos.DataModel.Imagenes" Role="Imagenes" Multiplicity="1" />
+          <End Type="WebApp.Datos.DataModel.UserPhotos" Role="UserPhotos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Imagenes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPhotos">
+              <PropertyRef Name="IdImagen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserPhotos_Usuario">
+          <End Type="WebApp.Datos.DataModel.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="WebApp.Datos.DataModel.UserPhotos" Role="UserPhotos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPhotos">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WebAppDatosDataModelStoreContainer" CdmEntityContainer="DatabaseContext">
+          <EntitySetMapping Name="Alim">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.Alim">
+              <MappingFragment StoreEntitySet="Alim">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="FactorRendimiento" ColumnName="FactorRendimiento" />
+                <ScalarProperty Name="FactorDescuento" ColumnName="FactorDescuento" />
+                <ScalarProperty Name="Fraccionado" ColumnName="Fraccionado" />
+                <ScalarProperty Name="ConversionInyectado" ColumnName="ConversionInyectado" />
+                <ScalarProperty Name="FactorConversion" ColumnName="FactorConversion" />
+                <ScalarProperty Name="Inactivo" ColumnName="Inactivo" />
+                <ScalarProperty Name="NomAbreviado" ColumnName="NomAbreviado" />
+                <ScalarProperty Name="NomCientifico" ColumnName="NomCientifico" />
+                <ScalarProperty Name="esAlimento" ColumnName="esAlimento" />
+                <ScalarProperty Name="NT_MedidaBase" ColumnName="NT_MedidaBase" />
+                <ScalarProperty Name="IdUniMed" ColumnName="IdUniMed" />
+                <ScalarProperty Name="IdAlimGrp" ColumnName="IdAlimGrp" />
+                <ScalarProperty Name="IdAlimFte" ColumnName="IdAlimFte" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Alim_Fuente">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.Alim_Fuente">
+              <MappingFragment StoreEntitySet="Alim_Fuente">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Cod" ColumnName="Cod" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Alim_Grp">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.Alim_Grp">
+              <MappingFragment StoreEntitySet="Alim_Grp">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Cod" ColumnName="Cod" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DesCant">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.DesCant">
+              <MappingFragment StoreEntitySet="DesCant">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdAlim" ColumnName="IdAlim" />
+                <ScalarProperty Name="IdDes" ColumnName="IdDes" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Desecho">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.Desecho">
+              <MappingFragment StoreEntitySet="Desecho">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FactConv">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.FactConv">
+              <MappingFragment StoreEntitySet="FactConv">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdAlim" ColumnName="IdAlim" />
+                <ScalarProperty Name="IdMed" ColumnName="IdMed" />
+                <ScalarProperty Name="Factor" ColumnName="Factor" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FamRec">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.FamRec">
+              <MappingFragment StoreEntitySet="FamRec">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Base" ColumnName="Base" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nt_Cant">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.Nt_Cant">
+              <MappingFragment StoreEntitySet="Nt_Cant">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdAlim" ColumnName="IdAlim" />
+                <ScalarProperty Name="IdNtFte" ColumnName="IdNtFte" />
+                <ScalarProperty Name="IdNut" ColumnName="IdNut" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="ErrorEstandar" ColumnName="ErrorEstandar" />
+                <ScalarProperty Name="NumObs" ColumnName="NumObs" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nt_Fuente">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.Nt_Fuente">
+              <MappingFragment StoreEntitySet="Nt_Fuente">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Cod" ColumnName="Cod" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nt_Func">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.Nt_Func">
+              <MappingFragment StoreEntitySet="Nt_Func">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nt_Grp">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.Nt_Grp">
+              <MappingFragment StoreEntitySet="Nt_Grp">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdGrpCantNT" ColumnName="IdGrpCantNT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nt_Grp_Cant">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.Nt_Grp_Cant">
+              <MappingFragment StoreEntitySet="Nt_Grp_Cant">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nutriente">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.Nutriente">
+              <MappingFragment StoreEntitySet="Nutriente">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Simbolo" ColumnName="Simbolo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="Decimales" ColumnName="Decimales" />
+                <ScalarProperty Name="IdUniMed" ColumnName="IdUniMed" />
+                <ScalarProperty Name="IdFuncNT" ColumnName="IdFuncNT" />
+                <ScalarProperty Name="IdGrpNT" ColumnName="IdGrpNT" />
+                <ScalarProperty Name="esEsencial" ColumnName="esEsencial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Receta">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.Receta">
+              <MappingFragment StoreEntitySet="Receta">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdFamRec" ColumnName="IdFamRec" />
+                <ScalarProperty Name="IdRecetaBase" ColumnName="IdRecetaBase" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Preparacion" ColumnName="Preparacion" />
+                <ScalarProperty Name="IdFoto" ColumnName="IdFoto" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecProd">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.RecProd">
+              <MappingFragment StoreEntitySet="RecProd">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdReceta" ColumnName="IdReceta" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="Gramos" ColumnName="Gramos" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rend">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.Rend">
+              <MappingFragment StoreEntitySet="Rend">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RendCant">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.RendCant">
+              <MappingFragment StoreEntitySet="RendCant">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdAlim" ColumnName="IdAlim" />
+                <ScalarProperty Name="IdRend" ColumnName="IdRend" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UniMed">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.UniMed">
+              <MappingFragment StoreEntitySet="UniMed">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="CodUMed" ColumnName="CodUMed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Usp_InfoNutri_FindBy_IdProducto" FunctionName="WebApp.Datos.DataModel.Store.Usp_InfoNutri_FindBy_IdProducto" />
+          <FunctionImportMapping FunctionImportName="Usp_Nutrientes_ShowAll" FunctionName="WebApp.Datos.DataModel.Store.Usp_Nutrientes_ShowAll">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WebApp.Datos.DataModel.Usp_Nutrientes_ShowAll_Result">
+                <ScalarProperty Name="IdNut" ColumnName="IdNut" />
+                <ScalarProperty Name="Nutriente" ColumnName="Nutriente" />
+                <ScalarProperty Name="Simbolo" ColumnName="Simbolo" />
+                <ScalarProperty Name="IdUniMed" ColumnName="IdUniMed" />
+                <ScalarProperty Name="UniMed" ColumnName="UniMed" />
+                <ScalarProperty Name="IdGrpCantNT" ColumnName="IdGrpCantNT" />
+                <ScalarProperty Name="Clasificacion" ColumnName="Clasificacion" />
+                <ScalarProperty Name="IdGrpNT" ColumnName="IdGrpNT" />
+                <ScalarProperty Name="TipoNutriente" ColumnName="TipoNutriente" />
+                <ScalarProperty Name="IdFuncNT" ColumnName="IdFuncNT" />
+                <ScalarProperty Name="Funcion" ColumnName="Funcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Usp_ProdInfoNutricional_ShowAll" FunctionName="WebApp.Datos.DataModel.Store.Usp_ProdInfoNutricional_ShowAll" />
+          <EntitySetMapping Name="Medida">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.Medida">
+              <MappingFragment StoreEntitySet="Medida">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Log4net">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.Log4net">
+              <MappingFragment StoreEntitySet="Log4net">
+                <ScalarProperty Name="Exception" ColumnName="Exception" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Thread" ColumnName="Thread" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Host" ColumnName="Host" />
+                <ScalarProperty Name="Logger" ColumnName="Logger" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginAttempts">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.LoginAttempts">
+              <MappingFragment StoreEntitySet="LoginAttempts">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Success" ColumnName="Success" />
+                <ScalarProperty Name="BrowserType" ColumnName="BrowserType" />
+                <ScalarProperty Name="IPNumber" ColumnName="IPNumber" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Password">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.Password">
+              <MappingFragment StoreEntitySet="Password">
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="CreatedByUserID" ColumnName="CreatedByUserID" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+                <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="Password1" ColumnName="Password" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PermisosUsuario">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.PermisosUsuario">
+              <MappingFragment StoreEntitySet="PermisosUsuario">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="FechaTermino" ColumnName="FechaTermino" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RolUsuario">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.RolUsuario">
+              <MappingFragment StoreEntitySet="RolUsuario">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Nota" ColumnName="Nota" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserPasswords">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.UserPasswords">
+              <MappingFragment StoreEntitySet="UserPasswords">
+                <ScalarProperty Name="ExternalUser" ColumnName="ExternalUser" />
+                <ScalarProperty Name="IdPassword" ColumnName="IdPassword" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="UserNote" ColumnName="UserNote" />
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="SupervisorUserID" ColumnName="SupervisorUserID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Imagenes">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.Imagenes">
+              <MappingFragment StoreEntitySet="Imagenes">
+                <ScalarProperty Name="NomArchivo" ColumnName="NomArchivo" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserPhotos">
+            <EntityTypeMapping TypeName="WebApp.Datos.DataModel.UserPhotos">
+              <MappingFragment StoreEntitySet="UserPhotos">
+                <ScalarProperty Name="IdImagen" ColumnName="IdImagen" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

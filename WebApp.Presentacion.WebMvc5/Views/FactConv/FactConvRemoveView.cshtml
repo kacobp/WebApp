@@ -1,0 +1,63 @@
+@*//===================================================================================
+// © CBP - linkedin.com/in/
+//===================================================================================*@
+
+@using WebApp.Presentacion.WebMvc5.Resources
+
+@model WebApp.Presentacion.WebMvc5.ViewModels.FactConvCrudViewModel
+
+@{ 
+	ViewBag.Title = "Remove FactConv"; 
+	}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>@Html.Label(PresentationResources.DeleteSure)</h3>
+@using (Html.BeginForm()) {
+	@Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+	<fieldset>
+		<legend>FactConv</legend>
+
+			@Html.HiddenFor(model => model.FactConv.Id)
+
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.FactConv.IdAlim):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.FactConv.IdAlim)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.FactConv.IdMed):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.FactConv.IdMed)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.FactConv.Factor):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.FactConv.Factor)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.FactConv.FechaRegistro):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.FactConv.FechaRegistro)
+			</div>
+		</div>
+		<div class="buttons">
+			<p>
+				<input type="submit" name="remove" value="@PresentationResources.Remove" />
+			</p>
+		</div>		
+	</fieldset>
+}
+
+<div>
+	@Html.ActionLink(PresentationResources.GoBack, "Find")
+</div>

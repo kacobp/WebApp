@@ -1,0 +1,63 @@
+@*//===================================================================================
+// © CBP - linkedin.com/in/
+//===================================================================================*@
+
+@using WebApp.Aplicacion.Resx
+@using WebApp.Presentacion.WebMvc5.Resources
+
+@model WebApp.Presentacion.WebMvc5.ViewModels.Nt_GrpFindViewModel
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="ibox-content">
+   
+            <div id="search-result">
+                @if (Model != null && Model.Items != null && Model.Items.Any())
+                {
+                    var grid = new WebGrid(rowsPerPage: Model.PageSize, ajaxUpdateContainerId: "search-result");
+                    grid.Bind(Model.Items, rowCount: Model.TotalItems, autoSortAndPage: false);
+                    grid.PageIndex = Model.PageIndex - 1;
+
+					@grid.GetHtml(
+                    tableStyle: "table table - striped",
+                    //tableStyle: "webgrid",
+                    //tableStyle: "table table - striped table - bordered table - hover",
+                    //tableStyle: "footable table table-stripped toggle-arrow-tiny",
+                    //tableStyle: "table table-hover",
+                    //headerStyle: "webgrid-header",
+                    //headerStyle: "table-header-group",
+                    //footerStyle: "webgrid-footer",
+                    //footerStyle: "pagination pull - right",
+
+                    //alternatingRowStyle: "webgrid-alternating-row",
+                    //rowStyle: "webgrid-row-style",
+                    mode: WebGridPagerModes.All,
+                    numericLinksCount: 12,
+                    columns: grid.Columns(
+									grid.Column("Nombre", ApplicationResources.Nt_GrpNombre),
+									grid.Column("Descripcion", ApplicationResources.Nt_GrpDescripcion),
+									grid.Column("IdGrpCantNT", ApplicationResources.Nt_GrpIdGrpCantNT),
+									grid.Column(
+									header: PresentationResources.Actions, 
+									style: "text-align-center",
+									format: item => new HtmlString(
+									string.Concat
+									(
+									Html.ActionLink(PresentationResources.Modify, "Modify", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" }).ToString(),
+									" | ",
+									Html.ActionLink(PresentationResources.Remove, "Remove", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" }).ToString()
+									)
+								)
+							)
+						)
+					)
+				}
+                else if (Model != null && Model.Items != null)
+                {
+                @Html.Label(PresentationResources.NoResults);
+                }
+            </div>
+
+        </div>
+    </div>
+</div>

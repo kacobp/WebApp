@@ -1,0 +1,63 @@
+@*//===================================================================================
+// © CBP - linkedin.com/in/
+//===================================================================================*@
+
+@using WebApp.Presentacion.WebMvc5.Resources
+
+@model WebApp.Presentacion.WebMvc5.ViewModels.RendCantCrudViewModel
+
+@{ 
+	ViewBag.Title = "Remove RendCant"; 
+	}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>@Html.Label(PresentationResources.DeleteSure)</h3>
+@using (Html.BeginForm()) {
+	@Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+	<fieldset>
+		<legend>RendCant</legend>
+
+			@Html.HiddenFor(model => model.RendCant.Id)
+
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.RendCant.IdAlim):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.RendCant.IdAlim)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.RendCant.IdRend):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.RendCant.IdRend)
+			</div>
+		</div>
+		<div class="newline">
+			<div class="label">
+				@Html.DisplayNameFor(model => model.RendCant.Cantidad):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.RendCant.Cantidad)
+			</div>
+			<div class="label">
+				@Html.DisplayNameFor(model => model.RendCant.FechaRegistro):
+			</div>
+			<div class="field">
+				@Html.DisplayFor(model => model.RendCant.FechaRegistro)
+			</div>
+		</div>
+		<div class="buttons">
+			<p>
+				<input type="submit" name="remove" value="@PresentationResources.Remove" />
+			</p>
+		</div>		
+	</fieldset>
+}
+
+<div>
+	@Html.ActionLink(PresentationResources.GoBack, "Find")
+</div>

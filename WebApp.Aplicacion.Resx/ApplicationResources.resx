@@ -1,0 +1,630 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlimConversionInyectado" xml:space="preserve">
+    <value>Conversion Inyectado</value>
+  </data>
+  <data name="AlimesAlimento" xml:space="preserve">
+    <value>esAlimento</value>
+  </data>
+  <data name="AlimFactorConversion" xml:space="preserve">
+    <value>Factor Conversion</value>
+  </data>
+  <data name="AlimFactorDescuento" xml:space="preserve">
+    <value>Factor Descuento</value>
+  </data>
+  <data name="AlimFactorRendimiento" xml:space="preserve">
+    <value>Factor Rendimiento</value>
+  </data>
+  <data name="AlimFechaRegistro" xml:space="preserve">
+    <value>Fecha de Registro</value>
+  </data>
+  <data name="AlimFraccionado" xml:space="preserve">
+    <value>Fraccionado</value>
+  </data>
+  <data name="AlimId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="AlimIdAlimFte" xml:space="preserve">
+    <value>Fuente Alimenticia</value>
+  </data>
+  <data name="AlimIdAlimGrp" xml:space="preserve">
+    <value>Grupo Alimenticio</value>
+  </data>
+  <data name="AlimIdEstado" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="AlimIdUniMed" xml:space="preserve">
+    <value>Unidad de Medida</value>
+  </data>
+  <data name="AlimInactivo" xml:space="preserve">
+    <value>Inactivo</value>
+  </data>
+  <data name="AlimNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="AlimNomCientifico" xml:space="preserve">
+    <value>Nombre Cientifico</value>
+  </data>
+  <data name="AlimNT_MedidaBase" xml:space="preserve">
+    <value>Medida Base</value>
+  </data>
+  <data name="Alim_FuenteCod" xml:space="preserve">
+    <value>Codigo</value>
+  </data>
+  <data name="Alim_FuenteId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="Alim_FuenteNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Alim_GrpCod" xml:space="preserve">
+    <value>Codigo</value>
+  </data>
+  <data name="Alim_GrpId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="Alim_GrpNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="exception_WithoutRepository" xml:space="preserve">
+    <value>Without Repository</value>
+  </data>
+  <data name="AlimNomAbreviado" xml:space="preserve">
+    <value>Nombre Abreviado</value>
+  </data>
+  <data name="validation_FieldMaxLenght" xml:space="preserve">
+    <value>Length exceeded [{1}]</value>
+  </data>
+  <data name="validation_FieldRange" xml:space="preserve">
+    <value>Wrong range [{1} - {2}]</value>
+  </data>
+  <data name="validation_FieldRequired" xml:space="preserve">
+    <value>Required</value>
+  </data>
+  <data name="DesCantCantidad" xml:space="preserve">
+    <value>Cantidad</value>
+  </data>
+  <data name="DesCantFechaRegistro" xml:space="preserve">
+    <value>Fecha de Registro</value>
+  </data>
+  <data name="DesCantId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="DesCantIdAlim" xml:space="preserve">
+    <value>Alimento</value>
+  </data>
+  <data name="DesCantIdDes" xml:space="preserve">
+    <value>Desecho</value>
+  </data>
+  <data name="DesechoId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="DesechoNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="FactConvFactor" xml:space="preserve">
+    <value>Factor</value>
+  </data>
+  <data name="FactConvFechaRegistro" xml:space="preserve">
+    <value>Fecha de Registro</value>
+  </data>
+  <data name="FactConvId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="FactConvIdAlim" xml:space="preserve">
+    <value>Alimento</value>
+  </data>
+  <data name="FactConvIdMed" xml:space="preserve">
+    <value>Medida</value>
+  </data>
+  <data name="FamRecBase" xml:space="preserve">
+    <value>Base</value>
+  </data>
+  <data name="FamRecDescripcion" xml:space="preserve">
+    <value>Descripcion</value>
+  </data>
+  <data name="FamRecFechaRegistro" xml:space="preserve">
+    <value>Fecha de Registro</value>
+  </data>
+  <data name="FamRecId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="FamRecNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Nt_CantErrorEstandar" xml:space="preserve">
+    <value>Error Estandar</value>
+  </data>
+  <data name="Nt_CantFechaRegistro" xml:space="preserve">
+    <value>Fecha de Registro</value>
+  </data>
+  <data name="Nt_CantId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="Nt_CantIdAlim" xml:space="preserve">
+    <value>Alimento</value>
+  </data>
+  <data name="Nt_CantIdNtFte" xml:space="preserve">
+    <value>Fuente Nutricional</value>
+  </data>
+  <data name="Nt_CantIdNut" xml:space="preserve">
+    <value>Nutriente</value>
+  </data>
+  <data name="Nt_CantNumObs" xml:space="preserve">
+    <value>Num Obs</value>
+  </data>
+  <data name="Nt_CantValor" xml:space="preserve">
+    <value>Valor</value>
+  </data>
+  <data name="Nt_FuenteCod" xml:space="preserve">
+    <value>Codigo</value>
+  </data>
+  <data name="Nt_FuenteId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="Nt_FuenteNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Nt_FuncDescripcion" xml:space="preserve">
+    <value>Descripcion</value>
+  </data>
+  <data name="Nt_FuncId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="Nt_FuncNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Nt_GrpDescripcion" xml:space="preserve">
+    <value>Descripcion</value>
+  </data>
+  <data name="Nt_GrpId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="Nt_GrpIdGrpCantNT" xml:space="preserve">
+    <value>Nt_GrpIdGrpCantNT</value>
+  </data>
+  <data name="Nt_GrpNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Nt_Grp_CantDescripcion" xml:space="preserve">
+    <value>Descripcion</value>
+  </data>
+  <data name="Nt_Grp_CantId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="Nt_Grp_CantNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="NutrienteCodigo" xml:space="preserve">
+    <value>Codigo</value>
+  </data>
+  <data name="NutrienteDecimales" xml:space="preserve">
+    <value>Decimales</value>
+  </data>
+  <data name="NutrienteesEsencial" xml:space="preserve">
+    <value>es Esencial</value>
+  </data>
+  <data name="NutrienteId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="NutrienteIdFuncNT" xml:space="preserve">
+    <value>Funcion Nutricional</value>
+  </data>
+  <data name="NutrienteIdGrpNT" xml:space="preserve">
+    <value>Grupo Nutricional</value>
+  </data>
+  <data name="NutrienteIdUniMed" xml:space="preserve">
+    <value>Unidad de Medida</value>
+  </data>
+  <data name="NutrienteNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="NutrienteSimbolo" xml:space="preserve">
+    <value>Simbolo</value>
+  </data>
+  <data name="NutrienteTag" xml:space="preserve">
+    <value>Tags</value>
+  </data>
+  <data name="RecetaAlias" xml:space="preserve">
+    <value>Alias</value>
+  </data>
+  <data name="RecetaDescripcion" xml:space="preserve">
+    <value>Descripcion</value>
+  </data>
+  <data name="RecetaFechaRegistro" xml:space="preserve">
+    <value>Fecha Registro</value>
+  </data>
+  <data name="RecetaId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="RecetaIdEstado" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="RecetaIdFamRec" xml:space="preserve">
+    <value>Familia Recetas</value>
+  </data>
+  <data name="RecetaIdFoto" xml:space="preserve">
+    <value>IdFoto</value>
+  </data>
+  <data name="RecetaIdRecetaBase" xml:space="preserve">
+    <value>Receta Base</value>
+  </data>
+  <data name="RecetaNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="RecetaPreparacion" xml:space="preserve">
+    <value>Preparacion</value>
+  </data>
+  <data name="RecetaUbicacion" xml:space="preserve">
+    <value>Ubicacion</value>
+  </data>
+  <data name="RecProdFechaRegistro" xml:space="preserve">
+    <value>Fecha Registro</value>
+  </data>
+  <data name="RecProdGramos" xml:space="preserve">
+    <value>Gramos</value>
+  </data>
+  <data name="RecProdId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="RecProdIdProducto" xml:space="preserve">
+    <value>Producto</value>
+  </data>
+  <data name="RecProdIdProveedor" xml:space="preserve">
+    <value>Proveedor</value>
+  </data>
+  <data name="RecProdIdReceta" xml:space="preserve">
+    <value>Receta</value>
+  </data>
+  <data name="RendCantCantidad" xml:space="preserve">
+    <value>Cantidad</value>
+  </data>
+  <data name="RendCantFechaRegistro" xml:space="preserve">
+    <value>Fecha Registro</value>
+  </data>
+  <data name="RendCantId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="RendCantIdAlim" xml:space="preserve">
+    <value>Alimento</value>
+  </data>
+  <data name="RendCantIdRend" xml:space="preserve">
+    <value>Rendimiento</value>
+  </data>
+  <data name="RendId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="RendNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="UniMedCodUMed" xml:space="preserve">
+    <value>CodUMed</value>
+  </data>
+  <data name="UniMedDescripcion" xml:space="preserve">
+    <value>Descripcion</value>
+  </data>
+  <data name="UniMedId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="UniMedNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="UsuarioAccountName" xml:space="preserve">
+    <value>Nombre de Usuario</value>
+  </data>
+  <data name="UsuarioActivo" xml:space="preserve">
+    <value>Activo</value>
+  </data>
+  <data name="UsuarioCreatedBy" xml:space="preserve">
+    <value>Creado por</value>
+  </data>
+  <data name="UsuarioCreatedDate" xml:space="preserve">
+    <value>Fecha de creacion</value>
+  </data>
+  <data name="UsuarioExternalUser" xml:space="preserve">
+    <value>Usuario Externo</value>
+  </data>
+  <data name="UsuarioId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="UsuarioLanguageId" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="UsuarioModifiedBy" xml:space="preserve">
+    <value>Modificado por</value>
+  </data>
+  <data name="UsuarioModifiedDate" xml:space="preserve">
+    <value>Fecha de modificacion</value>
+  </data>
+  <data name="UsuarioPhoto" xml:space="preserve">
+    <value>Fotografia</value>
+  </data>
+  <data name="UsuarioSupervisorUserID" xml:space="preserve">
+    <value>Supervisor</value>
+  </data>
+  <data name="UsuarioUserNote" xml:space="preserve">
+    <value>Nota Personal</value>
+  </data>
+  <data name="Log4netDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Log4netException" xml:space="preserve">
+    <value>Exception</value>
+  </data>
+  <data name="Log4netHost" xml:space="preserve">
+    <value>Host</value>
+  </data>
+  <data name="Log4netId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="Log4netLevel" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="Log4netLogger" xml:space="preserve">
+    <value>Logger</value>
+  </data>
+  <data name="Log4netMessage" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="Log4netThread" xml:space="preserve">
+    <value>Thread</value>
+  </data>
+  <data name="LoginAttemptsBrowserType" xml:space="preserve">
+    <value>BrowserType</value>
+  </data>
+  <data name="LoginAttemptsCreatedDate" xml:space="preserve">
+    <value>Fecha creacion</value>
+  </data>
+  <data name="LoginAttemptsId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="LoginAttemptsIdUsuario" xml:space="preserve">
+    <value>IdUsuario</value>
+  </data>
+  <data name="LoginAttemptsIPNumber" xml:space="preserve">
+    <value>IPNumber</value>
+  </data>
+  <data name="LoginAttemptsPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="LoginAttemptsSuccess" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="MedidaId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="MedidaNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="PasswordActivo" xml:space="preserve">
+    <value>Activo</value>
+  </data>
+  <data name="PasswordCreatedByUserID" xml:space="preserve">
+    <value>Creado por</value>
+  </data>
+  <data name="PasswordFechaCreacion" xml:space="preserve">
+    <value>Fecha de Creacion</value>
+  </data>
+  <data name="PasswordId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="PasswordPassword1" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PasswordPasswordAnswer" xml:space="preserve">
+    <value>Answer</value>
+  </data>
+  <data name="PasswordPasswordHash" xml:space="preserve">
+    <value>Hash</value>
+  </data>
+  <data name="PasswordPasswordQuestion" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="PasswordPasswordSalt" xml:space="preserve">
+    <value>Salt</value>
+  </data>
+  <data name="PermisosUsuarioCreatedBy" xml:space="preserve">
+    <value>Creado por</value>
+  </data>
+  <data name="PermisosUsuarioCreatedDate" xml:space="preserve">
+    <value>Fecha creacion</value>
+  </data>
+  <data name="PermisosUsuarioFechaInicio" xml:space="preserve">
+    <value>Fecha de Inicio</value>
+  </data>
+  <data name="PermisosUsuarioFechaTermino" xml:space="preserve">
+    <value>Fecha termino</value>
+  </data>
+  <data name="PermisosUsuarioId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="PermisosUsuarioIdRol" xml:space="preserve">
+    <value>IdRol</value>
+  </data>
+  <data name="PermisosUsuarioIdUsuario" xml:space="preserve">
+    <value>IdUsuario</value>
+  </data>
+  <data name="PhotoFileName" xml:space="preserve">
+    <value>Nombre archivo</value>
+  </data>
+  <data name="PhotoId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="PhotoPhoto1" xml:space="preserve">
+    <value>Photo</value>
+  </data>
+  <data name="RolUsuarioActivo" xml:space="preserve">
+    <value>Activo</value>
+  </data>
+  <data name="RolUsuarioCreatedBy" xml:space="preserve">
+    <value>Creado por</value>
+  </data>
+  <data name="RolUsuarioCreatedDate" xml:space="preserve">
+    <value>Fecha creacion</value>
+  </data>
+  <data name="RolUsuarioId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="RolUsuarioModifiedBy" xml:space="preserve">
+    <value>Modificado por</value>
+  </data>
+  <data name="RolUsuarioModifiedDate" xml:space="preserve">
+    <value>Fecha modificacion</value>
+  </data>
+  <data name="RolUsuarioNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="RolUsuarioNota" xml:space="preserve">
+    <value>Nota</value>
+  </data>
+  <data name="UserPasswordsExternalUser" xml:space="preserve">
+    <value>Usuario externo</value>
+  </data>
+  <data name="UserPasswordsId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="UserPasswordsIdPassword" xml:space="preserve">
+    <value>IdPassword</value>
+  </data>
+  <data name="UserPasswordsIdUsuario" xml:space="preserve">
+    <value>IdUsuario</value>
+  </data>
+  <data name="UserPhotosId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="UserPhotosIdPhoto" xml:space="preserve">
+    <value>IdPhoto</value>
+  </data>
+  <data name="UserPhotosIdUsuario" xml:space="preserve">
+    <value>IdUsuario</value>
+  </data>
+  <data name="ImagenesId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="ImagenesImagen" xml:space="preserve">
+    <value>Imagen</value>
+  </data>
+  <data name="ImagenesNomArchivo" xml:space="preserve">
+    <value>Nombre archivo</value>
+  </data>
+  <data name="UserPhotosIdImagen" xml:space="preserve">
+    <value>IdImagen</value>
+  </data>
+</root>

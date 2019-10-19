@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D005CA14-962F-49C0-BE79-020679A84AA5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApp.Datos</RootNamespace>
+    <AssemblyName>WebApp.Datos</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.4\lib\net46\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqKit, Version=1.1.16.0, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqKit.1.1.16\lib\net45\LinqKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TrackableEntities.Common, Version=2.5.0.0, Culture=neutral, PublicKeyToken=b10b51e7b9be6a2e, processorArchitecture=MSIL">
+      <HintPath>..\packages\TrackableEntities.Common.2.5.7\lib\portable40-net40+sl5+win8+wp8+wpa81\TrackableEntities.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="TrackableEntities.EF.6, Version=2.5.0.0, Culture=neutral, PublicKeyToken=b10b51e7b9be6a2e, processorArchitecture=MSIL">
+      <HintPath>..\packages\TrackableEntities.EF.6.2.5.7\lib\net45\TrackableEntities.EF.6.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataModel\DatabaseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\DatabaseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\AlimRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\Alim_FuenteRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\Alim_GrpRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\DesCantRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\DesechoRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\FactConvRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\FamRecRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\ImagenesRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\Log4netRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\LoginAttemptsRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\MedidaRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\Nt_CantRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\Nt_FuenteRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\Nt_FuncRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\Nt_GrpRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\Nt_Grp_CantRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\NutrienteRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\PasswordRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\PermisosUsuarioRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\Query\AlimQuery.cs" />
+    <Compile Include="Repository\Query\Alim_FuenteQuery.cs" />
+    <Compile Include="Repository\Query\Alim_GrpQuery.cs" />
+    <Compile Include="Repository\Query\DesCantQuery.cs" />
+    <Compile Include="Repository\Query\DesechoQuery.cs" />
+    <Compile Include="Repository\Query\FactConvQuery.cs" />
+    <Compile Include="Repository\Query\FamRecQuery.cs" />
+    <Compile Include="Repository\Query\ImagenesQuery.cs" />
+    <Compile Include="Repository\Query\Log4netQuery.cs" />
+    <Compile Include="Repository\Query\LoginAttemptsQuery.cs" />
+    <Compile Include="Repository\Query\MedidaQuery.cs" />
+    <Compile Include="Repository\Query\Nt_CantQuery.cs" />
+    <Compile Include="Repository\Query\Nt_FuenteQuery.cs" />
+    <Compile Include="Repository\Query\Nt_FuncQuery.cs" />
+    <Compile Include="Repository\Query\Nt_GrpQuery.cs" />
+    <Compile Include="Repository\Query\Nt_Grp_CantQuery.cs" />
+    <Compile Include="Repository\Query\NutrienteQuery.cs" />
+    <Compile Include="Repository\Query\PasswordQuery.cs" />
+    <Compile Include="Repository\Query\PermisosUsuarioQuery.cs" />
+    <Compile Include="Repository\Query\RecetaQuery.cs" />
+    <Compile Include="Repository\Query\RecProdQuery.cs" />
+    <Compile Include="Repository\Query\RendCantQuery.cs" />
+    <Compile Include="Repository\Query\RendQuery.cs" />
+    <Compile Include="Repository\Query\RolUsuarioQuery.cs" />
+    <Compile Include="Repository\Query\UniMedQuery.cs" />
+    <Compile Include="Repository\Query\UserPasswordsQuery.cs" />
+    <Compile Include="Repository\Query\UserPhotosQuery.cs" />
+    <Compile Include="Repository\Query\UsuarioQuery.cs" />
+    <Compile Include="Repository\RecetaRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\RecProdRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\RendCantRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\RendRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\Reporitory.Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\RolUsuarioRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\UniMedRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\UserPasswordsRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\UserPhotosRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\UsuarioRepository.cs">
+      <DependentUpon>Reporitory.Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StoreProcedure\DatabaseContext.cs" />
+    <Compile Include="StoreProcedure\IDatabaseStoredProcedures.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="DataModel\DatabaseModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DatabaseModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DataModel\DatabaseModel.edmx.diagram">
+      <DependentUpon>DatabaseModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebApp.Datos.Core\WebApp.Datos.Core.csproj">
+      <Project>{87d7e958-2b45-4b23-9133-a15ac0abf846}</Project>
+      <Name>WebApp.Datos.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApp.Dominio.Core\WebApp.Dominio.Core.csproj">
+      <Project>{794777a5-3927-4433-96fc-44767355bddb}</Project>
+      <Name>WebApp.Dominio.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApp.Dominio\WebApp.Dominio.csproj">
+      <Project>{5b83e8eb-ca7f-46ad-9833-15a9c8f6901c}</Project>
+      <Name>WebApp.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApp.Transversal\WebApp.Transversales.csproj">
+      <Project>{3d1fbc43-2970-4545-b8bd-c0bb0e3fd040}</Project>
+      <Name>WebApp.Transversales</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataModel\DatabaseModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DatabaseModel.edmx</DependentUpon>
+      <LastGenOutput>DatabaseModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Repository\Query.Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Query.Model.cs</LastGenOutput>
+    </Content>
+    <Content Include="Repository\Reporitory.Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Reporitory.Model.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

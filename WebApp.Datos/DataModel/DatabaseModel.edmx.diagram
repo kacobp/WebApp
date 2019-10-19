@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a6da71bda9b6404da0e7ef0e4af15813" Name="Diagram1">
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.Alim" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.Alim_Fuente" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.Alim_Grp" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.DesCant" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.Desecho" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.FactConv" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.FamRec" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.Nt_Cant" Width="1.5" PointX="8.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.Nt_Fuente" Width="1.5" PointX="6" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.Nt_Func" Width="1.5" PointX="3.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.Nt_Grp" Width="1.5" PointX="3.75" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.Nt_Grp_Cant" Width="1.5" PointX="1.5" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.Nutriente" Width="1.5" PointX="6" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.Receta" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.RecProd" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.Rend" Width="1.5" PointX="6" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.RendCant" Width="1.5" PointX="8.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.UniMed" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_CONV_FAC_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_NT_AMT_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_Producto_FOOD_GRP" ManuallyRouted="false" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_Producto_FOOD_SRC" ManuallyRouted="false" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_Producto_UnidadMedida" ManuallyRouted="false" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_Receta_Producto_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_REFUSE_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_YIELD_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_REFUSE_REFU_NM" ManuallyRouted="false" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_Receta_Familia" ManuallyRouted="false" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_NT_AMT_NT_NM" ManuallyRouted="false" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_NT_AMT_NT_SRC" ManuallyRouted="false" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_NT_NM_NT_FUNC" ManuallyRouted="false" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_NT_GRP_NT_GRP_CANT" ManuallyRouted="false" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_NT_NM_NT_GRP" ManuallyRouted="false" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_Receta_Producto_Receta" ManuallyRouted="false" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_YIELD_YLD_NM" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.Medida" Width="1.5" PointX="10.375" PointY="9.875" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_CONV_FAC_MEASURE" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.Log4net" Width="1.5" PointX="10" PointY="2.375" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.LoginAttempts" Width="1.5" PointX="16.25" PointY="14" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.Password" Width="1.5" PointX="14" PointY="14.375" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.PermisosUsuario" Width="1.5" PointX="19.25" PointY="7.5" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.RolUsuario" Width="1.5" PointX="17" PointY="0.5" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.UserPasswords" Width="1.5" PointX="16.25" PointY="7.75" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.Usuario" Width="1.5" PointX="14" PointY="6.875" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_LoginAttempts_Usuario" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_UserPasswords_Password" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_RolesUsuario_RolUsuario" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_RolesUsuario_Usuario" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_UserPasswords_Usuario" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.Imagenes" Width="1.5" PointX="14" PointY="3.875" />
+        <EntityTypeShape EntityType="WebApp.Datos.DataModel.UserPhotos" Width="1.5" PointX="16.25" PointY="4.875" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_UserPhotos_Imagenes" />
+        <AssociationConnector Association="WebApp.Datos.DataModel.FK_UserPhotos_Usuario" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

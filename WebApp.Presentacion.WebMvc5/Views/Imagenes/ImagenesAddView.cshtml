@@ -1,0 +1,95 @@
+@*//===================================================================================
+// © CBP - linkedin.com/in/
+//===================================================================================*@
+
+@using WebApp.Presentacion.WebMvc5.Resources
+
+@model WebApp.Presentacion.WebMvc5.ViewModels.ImagenesCrudViewModel
+
+@{ 
+	ViewBag.Title = "Add Imagenes"; 
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>@ViewBag.Title</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="@Url.Action("Index", "Home")">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a>Imagenes</a>
+            </li>
+            <li class="active breadcrumb-item">
+                <strong>    @ViewBag.Title</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-content">
+
+                        @using (Html.BeginForm("Add", "Imagenes", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="form-horizontal">
+							    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                <div class="input-group">
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Imagenes.NomArchivo, new { @class = "control-label col-md-2" }):
+                                        @Html.EditorFor(model => model.Imagenes.NomArchivo, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Imagenes.NomArchivo, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="file-box">
+                                        <div class="file">
+                                            <a href="#">
+                                                <span class="corner"></span>
+                                                <div class="image">
+                                                    @if (Model.FileAttach != null)
+                                                    {
+                                                        <img alt="image" src="data:image/jpg;base64,@Convert.ToBase64String(@Model.FileAttach.Bytes())" />
+                                                        @*<img alt="image" class="img-fluid" src="~/Images/p1.jpg">*@
+                                                    }
+                                                </div>
+                                                <div class="file-name">
+                                                    @Html.TextBoxFor(m => m.FileAttach, new { type = "file", placeholder = Html.DisplayNameFor(m => m.FileAttach), @class = "form-control" })
+                                                    @Html.ValidationMessageFor(m => m.FileAttach, "", new { @class = "text-danger" })
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <span class="input-group-btn">
+                                        <span class="btn btn-default btn-file">
+                                            Buscar imagen...
+                                            @Html.TextBoxFor(m => m.FileAttach, new { type = "file", placeholder = Html.DisplayNameFor(m => m.FileAttach), @class = "form-control" })
+                                            @Html.ValidationMessageFor(m => m.FileAttach, "", new { @class = "text-danger" })
+                                        </span>
+                                    </span>
+                                    @*<input type="text" class="form-control" readonly>*@
+                                </div>
+
+
+							    <div class="form-group">
+                                    <button type="button" onclick="submit()" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="@PresentationResources.Add">
+                                        <i class="fa fa-save"> @PresentationResources.Add</i>
+                                    </button>
+
+                                    <a href="@Url.Action(PresentationResources.Find, "Imagenes")" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="@PresentationResources.GoBack"><i class="fa fa-reply"></i> @PresentationResources.GoBack</a>
+							    </div>
+
+						    </div>
+					}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

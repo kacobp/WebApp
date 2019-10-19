@@ -1,0 +1,187 @@
+@*//===================================================================================
+// © CBP - linkedin.com/in/
+//===================================================================================*@
+
+@using WebApp.Presentacion.WebMvc5.Resources
+@model WebApp.Presentacion.WebMvc5.ViewModels.Log4netFindViewModel
+
+@{ 
+	ViewBag.Title = "Find Log4net"; 
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2>	@ViewBag.Title</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="@Url.Action("Index", "Home")">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a>Log4net</a>
+            </li>
+            <li class="active breadcrumb-item">
+                <strong>    @ViewBag.Title</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="ibox-title">
+        <div class="ibox-tools">		
+            @*<a href="@Url.Action("Index", "Home")"
+               class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="@PresentationResources.HomePage">
+                <i class="fa fa-home"></i> @PresentationResources.HomePage*@
+            </a>
+            <a href="@Url.Action(@PresentationResources.Add, "Log4net")"
+               class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="@PresentationResources.Add">
+                <i class="fa fa-plus-square-o"></i> @PresentationResources.Add
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+
+                <div class="ibox-content">
+
+                    @using (Ajax.BeginForm(new AjaxOptions
+                    {
+                        LoadingElementDuration = 400,
+                        LoadingElementId = "busyinfo",
+                        UpdateTargetId = "search-result",
+                        OnBegin = "onPetitionBegin",
+                        OnComplete = "onPetitionComplete"
+                    }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true)
+
+                                <div id="search-form">
+									<div class="row">
+
+
+										<div class="col-sm-2">
+											<div class="form-group">
+												@Html.LabelFor(model => model.Log4net.Id):
+												@Html.EditorFor(model => model.Log4net.Id, new { @class = "form-control" })
+												@Html.ValidationMessageFor(model => model.Log4net.Id, "", new { @class = "text-danger" })
+											</div>
+										</div>
+										<div class="col-sm-2">
+											<div class="form-group">
+												@Html.LabelFor(model => model.Log4net.Level):
+												@Html.EditorFor(model => model.Log4net.Level, new { @class = "form-control" })
+												@Html.ValidationMessageFor(model => model.Log4net.Level, "", new { @class = "text-danger" })
+											</div>
+										</div>
+
+										<div class="col-sm-2">
+											<div class="form-group">
+												@Html.LabelFor(model => model.Log4net.Logger):
+												@Html.EditorFor(model => model.Log4net.Logger, new { @class = "form-control" })
+												@Html.ValidationMessageFor(model => model.Log4net.Logger, "", new { @class = "text-danger" })
+											</div>
+										</div>
+										<div class="col-sm-2">
+											<div class="form-group">
+												@Html.LabelFor(model => model.Log4net.Host):
+												@Html.EditorFor(model => model.Log4net.Host, new { @class = "form-control" })
+												@Html.ValidationMessageFor(model => model.Log4net.Host, "", new { @class = "text-danger" })
+											</div>
+										</div>
+
+										<div class="col-sm-2">
+											<div class="form-group">
+												@Html.LabelFor(model => model.Log4net.Date):
+												@Html.EditorFor(model => model.Log4net.Date, new { @class = "form-control" })
+												@Html.ValidationMessageFor(model => model.Log4net.Date, "", new { @class = "text-danger" })
+											</div>
+										</div>
+										<div class="col-sm-2">
+											<div class="form-group">
+												@Html.LabelFor(model => model.Log4net.Thread):
+												@Html.EditorFor(model => model.Log4net.Thread, new { @class = "form-control" })
+												@Html.ValidationMessageFor(model => model.Log4net.Thread, "", new { @class = "text-danger" })
+											</div>
+										</div>
+
+										<div class="col-sm-2">
+											<div class="form-group">
+												@Html.LabelFor(model => model.Log4net.Message):
+												@Html.EditorFor(model => model.Log4net.Message, new { @class = "form-control" })
+												@Html.ValidationMessageFor(model => model.Log4net.Message, "", new { @class = "text-danger" })
+											</div>
+										</div>
+										<div class="col-sm-2">
+											<div class="form-group">
+												@Html.LabelFor(model => model.Log4net.Exception):
+												@Html.EditorFor(model => model.Log4net.Exception, new { @class = "form-control" })
+												@Html.ValidationMessageFor(model => model.Log4net.Exception, "", new { @class = "text-danger" })
+											</div>
+										</div>
+										<div class="btn-group">
+											<button class="btn btn-white btn-sm" type="reset" name="reset"
+													data-toggle="tooltip" data-placement="top"
+													title="@PresentationResources.Reset">
+												<i class="fa fa-undo"></i> @PresentationResources.Reset
+											</button>
+
+											<button class="btn btn-lg btn-primary" type="submit" name="find"
+													data-toggle="tooltip" data-placement="top"
+													title="@PresentationResources.Find">
+												<i class="fa fa-binoculars"></i> @PresentationResources.Find
+											</button>
+										</div>
+									</div>
+
+                                </div>
+		
+								<div id="viewform" class="font-bold text-navy">[@PresentationResources.ViewForm] <i class="fa fa-unsorted"></i></div>
+                                <div id="busyinfo" class="sk-spinner sk-spinner-fading-circle">
+                                    <div class="sk-circle1 sk-circle"></div>
+                                    <div class="sk-circle2 sk-circle"></div>
+                                    <div class="sk-circle3 sk-circle"></div>
+                                    <div class="sk-circle4 sk-circle"></div>
+                                    <div class="sk-circle5 sk-circle"></div>
+                                    <div class="sk-circle6 sk-circle"></div>
+                                    <div class="sk-circle7 sk-circle"></div>
+                                    <div class="sk-circle8 sk-circle"></div>
+                                    <div class="sk-circle9 sk-circle"></div>
+                                    <div class="sk-circle10 sk-circle"></div>
+                                    <div class="sk-circle11 sk-circle"></div>
+                                    <div class="sk-circle12 sk-circle"></div>
+                                </div>
+								@{ Html.RenderPartial("_Log4netFindPartialView"); }
+                        </div>
+                        
+                    }
+
+                </div>
+            </div>
+    </div>
+</div>
+
+@section Scripts 
+{
+    <script>
+        $(document).on("click", "#viewform", function () {
+            $("#bcenter").show("slow");
+			$("#search-form").show("slow");
+            $("#viewform").hide("slow");
+        });
+
+        function onPetitionBegin() {
+            $("#search-result").hide("slow");
+            $("#bcenter").hide("slow");
+			$("#search-form").hide("slow");
+            $("#viewform").show("slow");
+        }
+
+        function onPetitionComplete() {
+            $("#search-result").show("slow");
+        }
+    </script>
+}

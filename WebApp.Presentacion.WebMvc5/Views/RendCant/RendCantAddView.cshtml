@@ -1,0 +1,79 @@
+@*//===================================================================================
+// © CBP - linkedin.com/in/
+//===================================================================================*@
+
+@using WebApp.Presentacion.WebMvc5.Resources
+
+@model WebApp.Presentacion.WebMvc5.ViewModels.RendCantCrudViewModel
+
+@{ 
+	ViewBag.Title = "Add RendCant"; 
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>@ViewBag.Title</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="@Url.Action("Index", "Home")">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a>RendCant</a>
+            </li>
+            <li class="active breadcrumb-item">
+                <strong>    @ViewBag.Title</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-content">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+							@Html.ValidationSummary(true)
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.RendCant.IdAlim, new { @class = "control-label col-md-2" }):
+								@Html.EditorFor(model => model.RendCant.IdAlim, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.RendCant.IdAlim, "", new { @class = "text-danger" })
+							</div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.RendCant.IdRend, new { @class = "control-label col-md-2" }):
+								@Html.DropDownListFor(model => model.RendCant.IdRend, Model.Rends, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.RendCant.IdRend, "", new { @class = "text-danger" })
+							</div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.RendCant.Cantidad, new { @class = "control-label col-md-2" }):
+								@Html.EditorFor(model => model.RendCant.Cantidad, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.RendCant.Cantidad, "", new { @class = "text-danger" })
+							</div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.RendCant.FechaRegistro, new { @class = "control-label col-md-2" }):
+								@Html.EditorFor(model => model.RendCant.FechaRegistro, new { @class = "form-control" })
+								@Html.ValidationMessageFor(model => model.RendCant.FechaRegistro, "", new { @class = "text-danger" })
+							</div>
+
+							<div class="form-group">
+                                <button type="button" onclick="submit()" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="@PresentationResources.Add">
+                                    <i class="fa fa-save"> @PresentationResources.Add</i>
+                                </button>
+
+                                <a href="@Url.Action(PresentationResources.Find, "RendCant")" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="@PresentationResources.GoBack"><i class="fa fa-reply"></i> @PresentationResources.GoBack</a>
+							</div>
+						</div>
+					}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
